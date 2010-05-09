@@ -1,0 +1,38 @@
+Hackers delight by Henry S warren\
+Understanding the Linux Kernel by daniel bovet
+How toSolve it: G. Polya
+Javascript : the good parts by douglas crockford
+Effective C++: 55 specific ways to improve your Programs and Design - scott meyers
+
+Computer Architecture - Jon L. henessey
+Reversing-Secrets of Reverse Engineering - Eldad Eilam
+Art of Multiprocessor programming - maurice herlihy
+Design patterns-Elements of Reusable Object Oriented Software - Erich Gamma
+Programming COllecive intelligence- Building smart Web 2.0 applications
+Debugging by David j Agans
+The princeton companion to Mathematics-timothy Gowers
+Concrete Mathematics-Knuth, Graham, Patashnik
+Art of Compter Programming- Donald Knuth
+Intro to Algorithms- CLR
+inside the Machine-Illustrated introduction to microprocessors and computer architecture.- Jon stokes
+Puzzles for programmers and pros-Dennis Shasha
+
+Windows visa C/ C++- Jeffery M Richter
+The C++ programming language- Stroustrup
+Computers and Intractability- a Guide to theory of NP-Completeness M.R. Garey
+
+Expert C programming- Peter van der linden
+Dont make me think - Steve Krug
+Intel Threading Building Building Blocks- Outfitting C++ for multixore processor parallelism-James Reinders
+Numerical Recipes in C- 3rd Edition
+NMap Network scanning - Gordon Fyodor lyon
+
+Gray Hat Python-Python programming for Hackers and Reverse Engineers
+Head First Design Patterns- Elizabeth Freeman
+Rootkits- Subverting the Windows Kernel- by Greg Hoglund
+The Shell coders Handbook - Discovering and Exploiting Security holes- Chris Anley
+
+Intro to theory of computations- Michael A Sipser
+memory dump analysis Anthology Vol-I, Dmitry Vostokov
+Purely FUnctional Data Structures- Chris Okasaki
+managing humans-Biting and humorous tales of a software engineer - Michael Lopp

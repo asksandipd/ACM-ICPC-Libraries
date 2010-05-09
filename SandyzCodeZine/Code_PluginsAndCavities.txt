@@ -1,0 +1,2149 @@
+EASE OFF CAVITY PAIN:
+=============================
+To ease pain from a toothache place either ground clove or pure food grade clove oil on the affected tooth.
+
+I also mixed warm water, salt and Oregano in a cup and swished that, It helps for about the same length of time as well
+
+Everyone was saying that vanilla or almond extract works, so I went to my cabinets and all I had was Pure Lemon Extract... It really worked wonders!! Just be careful because it burns. But it has 84% alcohol
+
+
+
+IMPORTANT KAWIGI's ALGORITHMS:
+=======================================
+
+(Dijkstra's algorithm, Prim's algorithm, Ford-Fulkerson, Knuth-Morris-Pratt, Matrix-Tree theorem, Extended Euclidean algorithm, etc). Sometimes the hardest part of such a problem is figuring out that it is "standard" and what the known algorithm for the problem is.
+
+
+
+vstring[] ret = new string[N]; 
+        int[,] val = new int[N,N]; 
+        for (int i = 0; i < N; i++) 
+        { 
+            for (int j = 0; j < N; j++) 
+            { 
+                val[i, j] = -1; 
+            } 
+        } 
+
+
+while (true) 
+{ 
+      // AlWays use this kinda of infinite loops with proper breaking condition inside some nested if Block
+}
+
+=================================================================
+If u were to output a C++ Vector<string> from the class use:
+vs res(N); 
+    for (int i=0; i<N; i++) { 
+      ostringstream out; 
+      for (int j=0; j<N; j++) { 
+        out<<ans[i][j]; 
+        if (j!=N-1) out<<" "; 
+      } 
+      res[i]=out.str();     
+    } 
+    return res
+
+
+
+===============================================================
+int change(char c) 
+{ 
+   if (c == '0') return 0; 
+   if (c >= 'a' && c <= 'z') return (c - 'a' + 1); 
+   return (c - 'A' + 27); 
+} 
+
+int getLen(char c) { 
+  if ('a'<=c && c<='z') return 1+c-'a'; else return 27+c-'A'; 
+} 
+
+
+==================================================================
+aLWASY FIRST OF ALL DECLAre A TABLE[MAX ELEMENTS][MAX ELEMENTS] FOR INPUT VECTOR<STRING> OF MAX ELEMENTS STRINGS.
+
+int t[50][50];
+  int i, j;
+  int co= 0, ce = 0, ro = 0, re = 0;
+  int n = matrix.size();
+  int m = matrix[0].length();
+  for(i = 0; i<n; i++)
+    for(j = 0; j<m; j++)
+      t[i][j] = matrix[i][j]-'0';
+
+tO FIND THE DISTANCE OF A LETTER IN A STRING FROM A STRING ARRAY USE THE FOLLOWING:
+
+int CableDonation::cable(vector <string> len) {
+  int n = len.size();
+  int i, j, k;
+  int table[50][50];
+  int sum = 0;
+  for(i = 0; i<n; i++)
+    for(j = 0; j<n; j++)
+    {
+      if (len[i][j] == '0')
+        table[i][j] = 0;
+      else
+      if ((len[i][j] >= 'a')&&(len[i][j] <= 'z'))
+        table[i][j] = len[i][j]-'a'+1;
+      else
+      if ((len[i][j] >= 'A')&&(len[i][j] <= 'Z'))
+        table[i][j] = len[i][j]-'A'+27;
+      sum+=table[i][j];
+    }
+
+
+
+
+1. formulas for counting the 1-bits in a word
+2. isolating the rightmost 1-bit
+3. flipping the rightmost contiguous string of 1-bits
+4. shifting and propagating bits
+5. reversing the order of bits and bytes, transposing a matrix
+
+
+Code examples are given either in C or in a simplified assembly language the book defines for 32-bit RISC machines.
+
+x	= 8
+x	= 0000 1000
+x-1	= 0000 0111
+X & (X-1) = 0000 0000
+
+tHEREFORE X IS AN EVEN NUMBER
+
+=============================================================================
+1. return (x & 0xfffffffc) | ((x & 1) << 1) | ((x & 2) >> 1);
+ // Swap rightmost 2 bits.
+
+
+2. But on a 32 bit machine: min(x,y) = y+((x-y)>>31)&(x-y) 
+
+3.  sa = (s >> (i+1)) & 1;      // Get bit i+1 of s.
+  
+    sb = (s >> i) & 1;          // Get bit i of s.  
+
+4. if ((sa ^ sb) == 0) {       // If sa,sb = 00 or 11,
+
+
+5.  x = (x >> 1) | (sa << 31);  // Prepend sa to x and
+      
+    y = (y >> 1) | ((sa ^ sb) << 31); // (sa^sb) to y.
+  
+
+6. s = s | (0x55555555 << 2*n); // Pad s on left with 01
+   
+   sr = (s >> 1) & 0x55555555;  // (no change) 
+
+7. /* Round up to a power of 2. */
+
+unsigned clp2(unsigned x) {
+   x = x - 1;
+   x = x | (x >> 1);
+   x = x | (x >> 2);
+   x = x | (x >> 4);
+   x = x | (x >> 8);
+   x = x | (x >>16);
+   return x + 1;
+}
+
+8. /* Round down to a power of 2. */
+
+unsigned flp2(unsigned x) {
+   x = x | (x >> 1);
+   x = x | (x >> 2);
+   x = x | (x >> 4);
+   x = x | (x >> 8);
+   x = x | (x >>16);
+   return x - (x >> 1);
+}
+
+9. (a & ~(b-1)). Of course, ~(b-1) is also -b, so (a & -b) 
+
+10. how to count the number of dissimilar bits between two numbers :
+int getdissimilar(int diff)
+{
+  int nwear = 0;
+  for(int i=0;i<sizeof(int)*8; i++)
+  {
+     nwear+=diff&1;
+     diff = diff <<1;
+  }
+   return nwear;
+
+}
+
+11. int x;  // we want to find the minimum of x and y
+int y;   
+int r;  // the result goes here 
+
+r = y + ((x - y) & -(x < y)); // min(x, y)
+
+
+
+12. r = x - ((x - y) & -(x < y)); // max(x, y)
+
+13. COUNTING THE NUMBER OF BITS SET IN v :
+unsigned int v; // count the number of bits set in v
+unsigned int c; // c accumulates the total bits set in v
+
+for (c = 0; v; v >>= 1)
+{
+  c += v & 1;
+}
+
+
+14. Use either of the following formulas to turn off the rightmost contiguous
+string of 1-bits (e.g., 01011000 ==> 01000000) [Wood]:  (((x | (x– 1))+ 1)& x), or
+((x& –x)+ x)& x
+
+15. Given 2 unsigned Ints : int x1, y1, we have to clear bits where both are 1, in both of them and produce two new ints x2 and y2,
+
+x2 = x1 & ~y1;
+y2 = y1 & ~x1;And to clear 1 bit from each,
+x3 = x2 & (x2 - 1)
+y3 = y2 & (y2 - 1)
+
+
+16. 
+ Flipping the ith bit in x between 0 and 1 in every iteration of a for loop or in a if() conditino block..use 
+x = x ^ (1 << i)
+
+17. x = (x << 3) - x; // Multiply by 7.
+x = (x << 8) - x; // Multiply by 255.
+
+18. 
+y = x & -x; // Isolate rightmost 1-bit.
+bz = y ? 0 : 1; // 1 if y = 0.
+ 
+He uses the expression x & -x to reduce the number of possible values to a small number. The value of this expression is a
+word that contains a single 1-bit at the position of the least significant 1-bit in x,
+or is 0 if x = 0. Thus x & -x has only 33 possible values...But they are not dense, they range from 0  to 2**31.
+Since x & -x is an integral power of 2 or is
+0, the multiplication amounts to a left shift of the constant, or it is a multiplication
+by 0.
+
+
+19. As an example, if x is an odd multiple of 16, then x & -x = 16...
+
+20. If u wanna clear or mask out all the bits in x except 0th bit u do x = x & (1 << 0) 
+or x= x & 1; then u may check for the 0th bit by querying in a if() like:
+x1 = x & 1;
+if(x1 & (1<<0) != 0)....
+
+
+20. MASKS: A mask is a value used to force certain bits to zero or one within some other value. A mask typically affects certain bits in an operand (forcing them to zero or one) and leaves other bits unaffected. The appropriate use of masks allows you to extract bits from a value, insert bits into a value, and pack or unpacked a packed data type.
+
+As an example, consider the ASCII codes for the digits "0".."9". Their codes fall in the range 0x30..0x39 respectively.  To convert an ASCII digit to its corresponding numeric value, you must subtract 30h from the ASCII code. This is easily accomplished by logically anding the value with 0x0F. This strips (sets to zero) all but the L.O. four bits producing the numeric value
+
+liek char x = '9';
+     int xn = x & 0x0F  OR u may do... int xn = x - 0x30;
+
+21. Much as you can use the and instruction to force selected bits to zero, you can use the or instruction to force selected bits to one. This operation is called masking in bits. 
+
+Remember the masking out operation described earlier with the and instruction? In that example we wanted to convert an ASCII code for a digit to its numeric equivalent. You can use the or instruction to reverse this process. That is, convert a numeric value in the range 0..9 to the ASCII code for the corresponding digit, i.e., '0'..'9'. To do this, logically or the specified numeric value with 30h. 
+
+22. By packing data, you may be able to reduce memory requirements for your data by inserting two or more values into a single byte or word. The cost for this reduction in memory use is lower performance. It takes time to pack and unpack the data. Nevertheless, for applications that aren't speed critical (or for those portions of the application that aren't speed critical), the memory savings might justify the use of packed data. 
+
+The data type that offers the most savings when using packing techniques is the boolean data type. To represent true or false requires a single bit. Therefore, up to eight different boolean values can be packed into a single byte. This represents an 8:1 compression ratio, therefore, a packed array of boolean values requires only one-eighth the space of an equivalent unpacked array (where each boolean variable consumes one byte). For example, the Pascal array 
+
+	B:packed array[0..31] of boolean; 
+
+requires only four bytes when packed one value per bit. When packed one value per byte, this array requires 32 bytes
+
+
+
+
+
+
+23. if u want to mask out(means making that bit as 0) ith bit in x use: x=x & (1<<i)
+    if we wanna prepare a User defined mask such that ith, i+1th i+7th and i-2th bit is 0 in x
+	use:
+x1 = x & (1 << i)
+x2 = x & (1 << i+1)
+x3 = x & (1 << i+7)
+x4 = x & (1 << i-3)
+
+so, we got our super duper mask for checking other integers in variable space as x4 where the above bits are zeroed out.
+
+24. 
+We can pack the 31 distinct values of an int in the higher order 5 bits of an integer x by >> by 5, OR
+in the lower order 5 bits by << 5...
+
+
+25. Some times we do wanna check for if a bit i is set/uset in a integer x using x & (1<<i) checks if if() blocks
+    we also wanna check that whether every 4th bit is set/unset in x by using (x/4) & (1<<(i%4))
+
+26. f I wanna create a mask for testing the 1st, 2nd, 3rd and 4th bit in sequence in a binary form....I am preparing my mask as (1<<1)+1<<2)+1<<3)+(1<<4)
+
+27. x = x ^ 1; shift all bits in x to their alternative bits. 0->1 and 1->0
+
+28. Example: need to record whether a sample contains any mercury, phosphorus, or chlorine
+Use bit 1 for mercury, bit 2 for phosphorus, bit 3 for chlorine
+Define constants to test for particular elements
+#            hex     binary
+MERCURY    = 0x01  # 0001
+PHOSPHORUS = 0x02  # 0010
+CHLORINE   = 0x04  # 0100
+
+# Sample contains mercury and chlorine
+sample = MERCURY | CHLORINE
+print 'sample: %04x' % sample
+
+# Check for various elements
+for (flag, name) in [[MERCURY, "mercury"],
+                     [PHOSPHORUS, "phosphorus"],
+                     [CHLORINE, "chlorine"]]:
+    if sample & flag:
+        print 'sample contains', name
+    else:
+        print 'sample does not contain', name
+
+sample: 0005
+sample contains mercury
+sample does not contain phosphorus
+sample contains chlorine
+
+29.  The following table shows some operations that can be done either with a line of code or one of the API methods: 
+
+y= all 0 bits y= 0; 
+y= all 1 bits y= -1 
+y= all zeros except for the rightmost or least significant bit y= 1; 
+y= all zeros except for the leftmost or sign bit y= Integer.MIN_VALUE; 
+y= the rightmost 1-bit of x y= x & (-x) 
+y= the leftmost 1-bit of x y= Integer.highestOneBit(x); 
+y= the rightmost 0-bit of x y= ~x & (x + 1) 
+y= x with the rightmost 1-bit turned off  y= x & (x - 1) 
+y= x with the rightmost 0-bit turned off  y= x | (x + 1) 
+y= the number of leading zeros in x  y= Integer.numberOfLeadingZeros(x);  
+y= the number of trailing zeros in x  y= Integer.numberOfTrailingZeros(x);  
+y= the number of 1 bits in x y= Integer.bitCount(x); 
+y= x with the bits reversed y= Integer.reverse(x); 
+y= x after a rotated shift left by c units  y= Integer.rotateLeft(x,c); 
+y= x after a rotated shift right by c units  y= Integer.rotateRight(x,c); 
+y= x with the bytes reversed y= Integer.reverseBytes(x); 
+
+
+
+30. public static int highestOneBit(int i)
+{
+  i |= (i >> 1);
+  i |= (i >> 2);
+  i |= (i >> 4);
+  i |= (i >> 8);
+  i |= (i >> 16);
+  return i - (i >>> 1);
+}
+
+
+31. Quick quiz: how do you rewrite the statement below, which alternates between two constants, without a conditional? 
+
+if (x == a) x= b;
+  else x= a;
+Answer: 
+
+x= a ^ b ^ x;
+//where x is equal to either a or b
+
+
+32. Number to integer conversion
+Using int(x) is 10% faster in AS3. Still the bitwise version works better in AS2.
+
+x = int(1.232)//equals:x = 1.232 >> 0;
+
+33. Extracting color components
+Not really a trick, but the regular way of extracting values using bit masking and shifting.
+
+//24bitvar color:uint = 0x336699;
+var r:uint = color >> 16;
+var g:uint = color >> 8 & 0xFF;
+var b:uint = color & 0xFF;
+//32bitvar color:uint = 0xff336699;
+var a:uint = color >>> 24;
+var r:uint = color >>> 16 & 0xFF;
+var g:uint = color >>>  8 & 0xFF;
+var b:uint = color & 0xFF;
+
+34. Combining color components
+‘Shift up’ the values into the correct position and combine them.
+
+//24bitvar r:uint = 0x33;
+var g:uint = 0x66;
+var b:uint = 0x99;
+var color:uint = r << 16 | g << 8 | b;
+//32bitvar a:uint = 0xff;
+var r:uint = 0x33;
+var g:uint = 0x66;
+var b:uint = 0x99;
+var color:uint = a << 24 | r << 16 | g << 8 | b;
+
+
+35. Increment/decrement
+This is much slower than the pre/post decrement operator, but a nice way to obfuscate your code ;-)
+
+i = -~i; // i++
+i = ~-i; // i--
+
+36. Sign flipping using NOT or XOR
+Strangely enough, this is 300%(!) faster.
+
+i = -i;
+//equals
+i = ~i + 1;
+//or
+i = (i ^ -1) + 1;
+
+
+37. Fast modulo operation using bitwise AND
+If the divisor is a power of 2, the modulo (%) operation can be done with:
+modulus = numerator & (divisor - 1);
+This is about 600% faster.
+
+x = 131 % 4;
+//equals:
+x = 131 & (4 - 1);
+
+38. Check if an integer is even/uneven using bitwise AND
+This is 600% faster.
+
+isEven = (i % 2) == 0;//equals:isEven = (i & 1) == 0;
+
+39. Absolute value
+Forget Math.abs() for time critical code. Version 1 is 2500% faster than Math.abs(), and the funky bitwise version 2 is again 20% faster than version 1.
+
+//version 1
+i = x < 0 ? -x : x;
+//version 2
+i = (x ^ (x >> 31)) - (x >> 31);
+
+40. Comparing two integers for equal sign
+This is 35% faster.
+
+eqSign = a * b > 0;//
+equals:eqSign = a ^ b >= 0;
+
+41. 
+
+
+
+Bitwise Tricks
+C code Description Obtained from 
+a ^= b; b ^= a; a ^= b; 			Swap a and b around ComputerShopper 
+c & -c or c & (~c + 1) 				return first bit set Eivind Eklund 
+~c & (c + 1) 					return first unset bit Eivind Eklund 
+
+					
+unsigned i, c = <number>;
+for (i = 0; c; i++) c ^= c & -c; 		i will contain the number of bits set in c Eivind Eklund 
+
+
+
+m = (m & 0x55555555) + ((m & 0xaaaaaaaa) >> 1);
+m = (m & 0x33333333) + ((m & 0xcccccccc) >> 2);
+m = (m & 0x0f0f0f0f) + ((m & 0xf0f0f0f0) >> 4);
+m = (m & 0x00ff00ff) + ((m & 0xff00ff00) >> 8);
+m = (m & 0x0000ffff) + ((m & 0xffff0000) >> 16); m will now contain number of bits set in the original m popcnt in FreeBSD's sys/i386/i386/mp_machdep.c 
+
+
+v -= ((v >> 1) & 0x55555555);
+v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
+v = (v + (v >> 4)) & 0x0F0F0F0F;
+v = (v * 0x01010101) >> 24; 			v will now contain number of bits set in the original v popcnt comment in FreeBSD's 						sys/i386/i386/mp_machdep.c 
+
+
+
+#define BITCOUNT(x) (((BX_(x)+(BX_(x)>>4)) & 0x0F0F0F0F) % 255)
+#define BX_(x) ((x) - (((x)>>1)&0x77777777) \
+- (((x)>>2)&0x33333333) \
+- (((x)>>3)&0x11111111)) 			macro to return number of bits in x (assumes 32bit integer) BSD fortune 
+
+
+
+n = ((n >> 1) & 0x55555555) | ((n << 1) & 0xaaaaaaaa);
+n = ((n >> 2) & 0x33333333) | ((n << 2) & 0xcccccccc);
+n = ((n >> 4) & 0x0f0f0f0f) | ((n << 4) & 0xf0f0f0f0);
+n = ((n >> 8) & 0x00ff00ff) | ((n << 8) & 0xff00ff00);
+n = ((n >> 16) & 0x0000ffff) | ((n << 16) & 0xffff0000); 			reverse bits in a 32bit integer BSD fortune 
+
+
+
+popcnt(x ^ (x - 1)) & 31 					return first bit set in x, where popcnt returns number of bits set Peter Wemm 
+			
+
+ffs using a lookup table return first bit set Colin Percival 
+
+
+
+=========================================================
+TO FIND THE BITCOUNT IN INTEGER - X
+
+int bitcount(unsigned char x) 
+ 
+		 { int count;
+ 
+				 for (count=0; x != 0; x>>=1);
+						 if ( x & 01)
+								 count++;
+				 return count;
+		 }	
+
+================================================================
+
+Bitwise Q & A:
+
+# define UNITY 0x00000001
+
+Q: I want to raise a number to a power of x 2^x?
+A:
+#define TWOPWR( x ) UNITY << (x) int z = TWOPWR(x) ; 
+
+Q: I want to a get a bit of position pos from x?
+A:
+#define GETBIT(x,pos) ( ((x) & ( UNITY << (pos) ))!=0 ) unsigned x = 25 ; bool bit = GETBIT(x,5) ; 
+
+Q: I want to a set a bit of position pos from x by true?
+A:
+#define SETBIT(x,pos) ( (x) | ( UNITY << (pos) ) ) unsigned x = 25 ; x = SETBIT(x,10) ; 
+
+Q: I want to a reset a bit of position pos from x by false?
+A:
+#define RESETBIT(x,pos) ( (x) & ~( UNITY << (pos) ) ) unsigned x = 25 ; x = RESETBIT(x,0) ; 
+
+Q: I want to a reset a bit of position pos from x by false?
+A:
+#define ISPWRTWO(x) (!((x) & ((x) - 1))
+bool bit = ISPWRTWO(5) ;
+
+Q: I want to swap 2 variables a, b without external space?
+A:
+#define SWAP(x, y) (((x) ^= (y)), ((y) ^= (x)), ((x) ^= (y)))
+int d = 8 , e = 9 ;
+SWAP(d,e) ;
+
+
+==================================================================
+y= the rightmost 0-bit of x y= ~x & (x + 1) 
+y= x with the rightmost 1-bit turned off  y= x & (x - 1) 
+y= x with the rightmost 0-bit turned off  y= x | (x + 1) 
+y= the rightmost 1-bit of x y= x & (-x) 
+
+public static int highestOneBit(int i)
+{
+  i |= (i >> 1);
+  i |= (i >> 2);
+  i |= (i >> 4);
+  i |= (i >> 8);
+  i |= (i >> 16);
+  return i - (i >>> 1);
+}
+
+The following program uses the Bitwise Shift Right and Bitwise And to display a number as a 16-bit binary number. The number is shifted right successively from 16 down to zero and Bitwise And'ed with 1 to see if the bit is set. An alternative method would be to use successive masks with the Bitwise Or operator. 
+
+binary.c
+
+#include <stdio.h> 
+
+int main()
+
+{
+
+    int counter, num;
+
+    printf("Enter a number: ");
+
+    scanf("%d", &num);
+
+    printf("%d is binary: ", num);
+
+    for (counter=15; counter>=0; counter--)
+
+        printf("%d", (num >> counter) & 1);
+
+    putchar('\n');
+
+    return 0;
+
+} 
+
+
+
+===========================================================================
+Beware! Shift is not the same as rotate. When rotating, the MSBit is moved
+to the LSBit position whereas in a shift opration, the LSBit is set to 0.
+
+To illustrate using a 4-bit variable with the initial bitpattern 1100:
+
+Value after shift: 1000
+
+Value after rotate: 1001
+
+A solution might look something like:
+
+int Rotate( int x )
+{
+if( 0x80000000 & x )
+return (x << 1) | 0x00000001;
+else
+return x << 1;
+}
+
+
+
+You'll probably need to add some error checking & input validation,
+but something like this seems to work:
+
+int rotateBits = 3;
+int dataSize = 16;
+bool rotateleft = true; // false = right
+
+uint value = 0xABCD;
+uint mask = (uint)((1 << dataSize) - 1);
+if (rotateleft)
+value = ((value << rotateBits) | (value >> (dataSize - rotateBits)))
+& mask;
+else
+value = ((value >> rotateBits) | (value << (dataSize - rotateBits)))
+& mask;
+
+===============================================================================
+Toggling a bit and leaving all other bits unchanged
+x = x ^ mask; 
+(or shorthand x ^= mask;) 
+Bits that are set to 1 in the mask will be toggled in x. 
+Bits that are set to 0 in the mask will be unchanged in x. 
+
+Toggling means that if the bit is 1, it is set to 0, and if the bit is 0, it is set to 1. 
+
+====================================================================
+Setting a bit to zero and leaving all other bits unchanged
+x = x & mask; 
+(or x &= mask;) 
+Bits that are set to 1 in the mask will be unchanged in x. 
+Bits that are set to 0 in the mask will be set to zero in x.
+
+====================================================================
+Setting a bit to one and leaving all other bits unchanged
+x = x | mask; 
+(or x |= mask;) 
+Bits that are set to 1 in the mask will be set to one in x. 
+Bits that are set to 0 in the mask will be unchanged in x.
+====================================================================
+Common Flag Values
+I prefer to use the hexadecimal representation in my code. 
+
+Binary(base2)	Hexadecimal(base16) 	Decimal(base10) 
+0000 0000 		0x00 		0 
+0000 0001 		0x01 		1 
+0000 0010 		0x02		 2 
+0000 0100 		0x04		 4 
+0000 1000 		0x08 		8 
+0001 0000 		0x10 		16 
+0010 0000 		0x20 		32 
+0100 0000 		0x40 		64 
+1000 0000 		0x80 		128 
+
+
+===========================================================================
+Example Macros
+Imagine there are two flags in the program that are independent of each other. We might implement macros to manipulate them as shown in the code sample below. It would probably be wise to put the macros in a header file. 
+
+// the flag definitions
+#define CAR_LOCKED    0x01  // 0000 0001
+#define CAR_PARKED    0x02  // 0000 0010
+#define CAR_RESET     0x00  // 0000 0000
+
+// macros to manipulate the flags
+#define RESET_CAR(x)     (x = CAR_RESET)
+
+#define SET_LOCKED(x)    (x |= CAR_LOCKED)
+#define SET_PARKED(x)    (x |= CAR_PARKED)
+
+#define UNSET_LOCKED(x)  (x &= (~CAR_LOCKED))
+#define UNSET_PARKED(x)  (x &= (~CAR_PARKED))
+
+#define TOGGLE_LOCKED(x)  (x ^= CAR_LOCKED)
+#define TOGGLE_PARKED(x)  (x ^= CAR_PARKED)
+
+// these evaluate to non-zero if the flag is set
+#define IS_LOCKED(x)      (x & CAR_LOCKED)
+#define IS_PARKED(x)      (x & CAR_PARKED)
+
+// a short program that demonstrates how to use the macros
+int
+main(void)
+{
+	unsigned char fMercedes, fCivic;
+
+	RESET_CAR(fMercedes);
+	RESET_CAR(fCivic);
+
+	SET_LOCKED(fMercedes);
+
+	if( IS_LOCKED(fMercedes) != 0 )
+	{
+		UNSET_PARKED(fCivic);
+	}
+
+	TOGGLE_LOCKED(fMercedes);
+
+	return 0;
+}
+============================================================================================
+static void ShowBits (ushort x)
+        {
+            int size;
+            unsafe
+            {
+                size = sizeof (short) * 8;
+            }
+            for (int i = size - 1; i >= 0; --i)
+            {
+                Console.Write ((x >> i) & 1);
+                if ((i % 4) == 0)
+                    Console.Write (' ');
+            }
+        }
+=====================================================================
+/*
+C#: The Complete Reference 
+by Herbert Schildt 
+
+Publisher: Osborne/McGraw-Hill (March 8, 2002)
+ISBN: 0072134852
+*/
+// Use XOR to encode and decode a message. 
+ 
+using System; 
+ 
+public class Encode {  
+  public static void Main() { 
+    char ch1 = 'H'; 
+    char ch2 = 'i'; 
+    char ch3 = '!'; 
+ 
+    int key = 88; 
+ 
+    Console.WriteLine("Original message: " + 
+                      ch1 + ch2 + ch3); 
+ 
+    // encode the message 
+    ch1 = (char) (ch1 ^ key); 
+    ch2 = (char) (ch2 ^ key); 
+    ch3 = (char) (ch3 ^ key); 
+ 
+    Console.WriteLine("Encoded message: " +  
+                      ch1 + ch2 + ch3); 
+ 
+    // decode the message 
+    ch1 = (char) (ch1 ^ key); 
+    ch2 = (char) (ch2 ^ key); 
+    ch3 = (char) (ch3 ^ key); 
+    
+    Console.WriteLine("Decoded message: " + 
+                      ch1 + ch2 + ch3); 
+  } 
+}
+=======================================================================
+TO MAKE A NUMBER EVEN:
+num = (ushort) (num & 0xFFFE); // num & 1111 1110 
+ 
+      Console.WriteLine("num after turning off bit zero: " 
+                        +  num + "\n");  
+===============================================================================
+TO SHOW AND DISPLAY THE BITS INSIDE A BYTE:
+/*
+C#: The Complete Reference 
+by Herbert Schildt 
+
+Publisher: Osborne/McGraw-Hill (March 8, 2002)
+ISBN: 0072134852
+*/
+// Display the bits within a byte.  
+using System; 
+ 
+public class ShowBits { 
+  public static void Main() { 
+    int t; 
+    byte val;  
+  
+    val = 123; 
+    for(t=128; t > 0; t = t/2) { 
+      if((val & t) != 0) Console.Write("1 ");  
+      if((val & t) == 0) Console.Write("0 ");  
+    } 
+  } 
+}
+
+
+==============================================================================================
+
+Notice that the value 0x40 has exactly one 1 bit in its binary representation, which makes it useful for testing for the presence of a certain bit. Such a value is often called a bit mask. Often, we'll define a series of bit masks, all targeting different bits, and then treat a single integer value as a set of flags. A ``flag'' is an on-off, yes-no condition, so we only need one bit to record it, not the 16 or 32 bits (or more) of an int. Storing a set of flags in a single int does more than just save space, it also makes it convenient to assign a set of flags all at once from one flag variable to another, using the conventional assignment operator =. For example, if we made these definitions: 
+
+	#define DIRTY	0x01
+	#define OPEN	0x02
+	#define VERBOSE	0x04
+	#define RED	0x08
+	#define SEASICK	0x10
+
+we would have set up 5 different bits as keeping track of those 5 different conditions (``dirty,'' ``open,'' etc.). If we had a variable 
+	unsigned int flags;
+
+which contained a set of these flags, we could write tests like 
+	if(flags & DIRTY)
+		{ /* code for dirty case */ }
+
+	if(!(flags & OPEN))
+		{ /* code for closed case */ }
+
+	if(flags & VERBOSE)
+		{ /* code for verbose case */ }
+	else	{ /* code for quiet case */ }
+
+A condition like if(flags & DIRTY) can be read as ``if the DIRTY bit is on''. 
+
+These bitmasks would also be useful for setting the flags. To ``turn on the DIRTY bit,'' we'd say 
+
+	flags = flags | DIRTY;		/* set DIRTY bit */
+
+How would we ``turn off'' a bit? The way to do it is to leave on every bit but the one we're turning off, if they were on already. We do this with the & and ~ operators: 
+	flags = flags & ~DIRTY;		/* clear DIRTY bit */
+
+This may be easier to see if we look at it in binary. If the DIRTY, RED, and SEASICK bits were already on, flags would be 0x19, and we'd have 
+	  0 0 0 1 1 0 0 1
+	& 1 1 1 1 1 1 1 0
+	  ---------------
+	  0 0 0 1 1 0 0 0
+
+As you can see, both the | operator when turning bits on and the & (plus ~) operator when turning bits off have no effect if the targeted bit were already on or off, respectively. 
+
+The definition of the exclusive-OR operator means that you can use it to toggle a bit, that is, to turn it to 1 if it was 0 and to 0 if it was one: 
+
+	flags = flags ^ VERBOSE;	/* toggle VERBOSE bit */
+
+
+It's common to use the ``op='' shorthand forms when doing all of these operations: 
+
+	flags |= DIRTY;			/* set DIRTY bit */
+	flags &= ~OPEN;			/* clear OPEN bit */
+	flags ^= VERBOSE;		/* toggle VERBOSE bit */
+
+
+We can also use the bitwise operators to extract subsets of bits from the middle of an integer. For example, to extract the second-to-last hexadecimal ``digit,'' we could use 
+
+	(i & 0xf0) >> 4
+
+
+
+Replacing (or overwriting) a subset of bits is a bit more complicated; we must first use & and ~ to clear all of the destination bits, then use << and | to ``OR in'' the new bits. For example, to replace that second-to-last hexadecimal digit with some new bits, we might use: 
+	(i & ~0xf0) | (newbits << 4)
+
+
+
+=======================================================================================
+To make a number negative, you can do this: (~x +1)
+
+To see if two numbers are equal, you can do this:
+Given int x and int y, the is equal operator is: !(x ^ y)
+To see if a number is positive, you can do this: !(x>>31) & !!x; (note an integer is 32 bits)
+
+
+=====================================================================================
+
+Increment/decrement
+This is much slower than the pre/post decrement operator, but a nice way to obfuscate your code ;-)
+
+i = -~i; // i++i = ~-i; // i--
+
+===========================================================================================
+Sign flipping using NOT or XOR
+Strangely enough, this is 300%(!) faster.
+
+i = -i;//equalsi = ~i + 1;//ori = (i ^ -1) + 1;
+
+Fast modulo operation using bitwise AND
+If the divisor is a power of 2, the modulo (%) operation can be done with:
+modulus = numerator & (divisor - 1);
+This is about 600% faster.
+
+x = 131 % 4;//equals:x = 131 & (4 - 1);
+
+===============================================================================================
+2 ** 30 or 1 << 30 is tghe max value of 32 bit integer - so use arrays of size max = 30 if u are generating subsets.
+In computer science, the subset sum problem is an important problem in complexity theory and cryptography.Subset sum can also be thought of as a special case of the knapsack problem. One interesting special case of subset sum is the partition problem, in which s is half of the sum of all elements in the set.
+
+bool cmprating(const coder &a, const coder &b) { return a.rating > b.rating; }
+sort(cs.begin(), cs.end(), cmpscore); 
+
+
+Its important that all of your calculations up to this point be performed on doubles, otherwise you will end up with rounding errors in your solution. The last step is to round up. There are a couple of ways to do this, but the most common was to use the build in ceiling functions. As mentioned in the notes of the problem, it is important to subtract a very small number like 10^-9 from your result before rounding it, or you might end up a victim to the minor imprecision of floating point numbers. It turns out that C++ is more accurate when dealing with floating point numbers, and that this step was probably not necessary in that language. 
+
+=======================================================================================================================
+Whenever you see a constraint that says "... will have between x and 20 elements, inclusive", you should always think brute force! If you are taking subsets of 20 things, then each of the 20 things has two possible states: in the subset, or not in the subset. Thus, there are 220 possible subsets of 20 things, and 220 is small enough (about a million) that you can try all possible subsets of 20 elements. In this case you were only concerned with subset of a specific size, so there are even less than that. Now, there are two ways to create the subsets of interest: iteratively and recursively. I'm rather partial to the iterative approach, because I think it is cleaner, but I'll go into both of them. First, the iterative approach: 
+
+A good way to generate subsets is to use a bitmask. In other words, have a single integer represent the subset, and have the bits in that integer represent whether elements are in the subset or not. For example, if you had the set {A,B,C}, then the bitmask 011 (3 in decimal) could represent the subset {B,C}. Similarly, the bitmask 101 (5 in decimal) would represent the subset {A,C}. Using bitmasks like this allows us to iteratively generate subsets with a single for loop. In the loop, we count from 0 (representing the empty set) up to 2n-1 (representing the entire set), where n is the number of elements in the original set. Every possible subset of nelements is represented by one of the number in this range. Furthermore, the number of elements in the subset is equal to the cardinality (number of ones in binary) of the number representing the subset. So, we can get all of the subsets of a certain size by looking only at numbers of a certain cardinality. The code for this part of the problem looks something like this (if you are not familiar with the << operator, it means shift left, and 1<<n = 2n): 
+
+                        
+for(int i = 0; i<(1<<n); i++){
+   if(cardinality(i)==teamSize){
+      //i represents a set of the correct size, so figure out the score.
+   }
+} 
+
+Now, once we have all a valid subset represented as an int, we need only evaluate the score for that subset. The simplest way to do this is with two nested loops. Also, its useful to be familiar with bitwise operations. In particular, the expression ((1<<j)&i)>0 will be true if and only if the jth bit of i is a one. So, using this expression, and assuming that the input has already been parsed into a 2-D array called g, we can evaluate the score of a subset as follows: 
+
+//i represents a set of the correct size, so figure out the score.
+int score = 0;
+for(int j = 0; j<n; j++){
+   for(int k = 0; k<n; k++){
+      if(((1<<j)&i)>0 && ((1<<k)&i)>0){
+         score += g[j][k];
+      }
+   }
+}
+
+Without going into as much detail, the idea behind the recursive implementation is similar. The primary difference is that the subsets are generated recursively, instead of iteratively. The recursive function should have a parameter specifying the current subset, and also the next element to be considered for addition. The recursive function should then make two calls to itself, one of which adds the element to the subset, and one of which does not. So sticking with our bitmask representation of subsets, our recursive function would look something like: 
+
+void recurse(int subset, int ptr){
+   if(ptr==n){
+        //there are no more elements to cosider adding, so evaluated the subset as above
+   }else{
+      recurse(subset,ptr+1);
+      recurse(subset|(1<<ptr),ptr+1);
+   }
+}
+
+The rest of the code is pretty similar. The recursive version can be made to run a little faster than the iterative version, since it is easy to cut out all of the subsets that are the wrong size.
+
+
+================================================================================================================
+
+int cardinality(int n){return n==0?0:(n&1)+cardinality(n>>1);}
+
+String ret[] = new String[teamSize];
+....
+for(int j = 0, ptr = 0; j<n; j++){
+   if((i&(1<<j))>0){
+        ret[ptr++] = people[j];
+ }
+
+
+
+==================================================================================================
+Sorting two arrays in a single double loop using XOR and NUmber swapping.
+for(int i = 0; i<dist.size(); i++)
+      for(int j = 0; j<i; j++)
+         if(dist[i]<dist[j]){
+            dist[i]^=dist[j]^=dist[i]^=dist[j];
+            price[i]^=price[j]^=price[i]^=price[j];
+         }
+ // With the end of this Loop, dist[] will be sorted by the comparison criteria if (dist[i] < dist[j])
+
+
+==============================================================================================
+
+Double Operation in C++ without the fear:
+currentGas -= ((double)dist[i] - (i?dist[i-1]:0))/mpg;
+      double add = 0>?((double)next-dist[i])/mpg - currentGas;
+      currentGas += add;
+      ret += add*price[i];
+
+
+==============================================================================
+
+
+
+=====================================================
+
+
+My Topocder Tricks
+=====================
+Floyd-Warshall
+Floyd-Warshall is a very powerful technique when the graph is represented by an adjacency matrix. It runs in O(n^3) time, where n is the number of vertices in the graph. However, in comparison to Dijkstra, which only gives us the shortest path from one source to the targets, Floyd-Warshall gives us the shortest paths from all source to all target nodes. There are other uses for Floyd-Warshall as well; it can be used to find connectivity in a graph (known as the Transitive Closure of a graph). 
+
+First, however we will discuss the Floyd Warshall All-Pairs Shortest Path algorithm, which is the most similar to Dijkstra. After running the algorithm on the adjacency matrix the element at adj[i][j] represents the length of the shortest path from node i to node j. The pseudo-code for the algorithm is given below: for (k = 1 to n)
+ for (i = 1 to n)
+  for (j = 1 to n)
+   adj[i][j] = min(adj[i][j], adj[i][k] + adj[k][j]);
+
+As you can see, this is extremely simple to remember and type. If the graph is small (less than 100 nodes) then this technique can be used to great effect for a quick submission. 
+
+
+
+For swapping:
+x = x ^ y;
+y = x ^ y;
+x = x ^ y;
+
+int gcd(int a,int b){ return b==0?a:gcd(b,a%b); }
+
+
+static boolean isLetter(char c){
+         return (c>='a'&&c<='z')||(c>='A'&&c<='Z');
+      }
+
+
+If the width or the height is not an integer, round down to the nearest integer; for example, 1.7 would become 1. 
+Add 1e-9 to round a double to nearest integer:
+double h = 1.0 * (1.0 * H * H * D * D) / (H * H + W * W);
+    double w = 1.0 * (1.0 * W * W * D * D) / (H * H + W * W);
+    h = sqrt(h);
+    w = sqrt(w);
+    vector <int> res;
+    res.push_back(int(h + 1e-9));
+    res.push_back(int(w + 1e-9));
+
+
+
+#define MAX(A, B) (((A) >= (B)) ? (A) : (B))
+#define MIN(A, B) (((A) <= (B)) ? (A) : (B))
+#define ABS(X) (((X) >= 0) ? (X) : -(X))
+#define SWAP(A, B, C) ((C) = (A), (A) = (B), (B) = (C))
+
+Check for String length always:
+if (!S.length())
+      return "";
+
+
+USEFUL CONSTRUCT:
+for(int i=0; i < s.size(); i++)
+{
+    ....
+	
+    for(; i<a.size(); i++)
+	....
+    for(; j < a.size(); j++)
+	...
+}
+
+
+uSING sTRING STREAMS TO CONVERT INPUT VECTOR<STRING> TO VECTOR<LONG LONG>
+==================================================================================
+vector <string> Transformation::transform(vector <string> A) {
+  vector<long long>a;
+  REP(i,A.size())
+  {
+    istringstream in(A[i]);
+    long long temp;
+    in>>temp;
+    a.push_back(temp);
+  }
+
+.... // DO SOME PROCESSING HERE....
+
+vector<string>B;
+  REP(i,a.size())
+  {
+    ostringstream out;
+    out<<a[i];
+    B.push_back(out.str());
+  }
+  return B;
+}
+
+=======================================================================================
+fINDING nPr #PERMUTATIONS OF N OBJECTS TAKEN R AT A TIME.
+
+long long nPr(int n,int r)
+{
+  long long ans=1;
+  if(r>n)return 0;
+  for(int i=n-r+1;i<=n;i++)
+    ans*=i;
+  return ans;
+}
+
+To get the total # of factors of a given integer:
+----------------------------------------------------
+int getFactors(int i) {
+int factors = 1, inp = i;
+for(int f = 2; f*f <= i; f ++) {
+int cnt = 0;
+while(i % f == 0) i /= f, cnt ++;
+factors *= 1+cnt;
+}
+factors *= 1+(i!=1);
+return factors;
+}
+=======================================================
+        Console.WriteLine((int)1e4); // 10000
+        Console.WriteLine(1e4); // 10000
+        Console.WriteLine((double)1e4); // 10000
+        Console.WriteLine((Int64)1e4); // 10000
+        Console.WriteLine((Int32)1e4); // 10000
+        Console.WriteLine(1e-4); // 0.0001
+        Console.WriteLine(1e-19); // 1E-19
+        Console.WriteLine((double)1e-5); // 1E-5
+
+========================================================
+
+
+
+
+=====================================================================================
+In a graph problem given a vector<string> as input, first find the max of the string lengths like this,
+public: int keystrokes( vector <string> source, vector <int> start, vector <int> finish )
+  {
+    N = source.size();
+    M = 0;
+    for (int i = 0; i < N; i++)
+      M = MAX(M, source[i].size());  // GREEDY TRICKY SOLUTION:
+
+    // After this iterate over max rowlength = Vector<string>.size() and max columnlength = M calculated above
+    for (int i = 0; i < N; i++)
+      for (int j = 0; j < M; j++)
+        if (j < source[i].size())
+          S[i][j] = source[i][j];
+        else
+          S[i][j] = ' ';
+    memset(C, 0, sizeof(C));
+IN the ABOVE CASE IF INPUT IS SOMTHING LIKE: 
+{ AAAADDE,
+  ADE   DJJEJ,
+  HHSUK,
+  A,
+  BB,
+  NJSIKFL,}
+
+OUTPUT OF THE CODE WILL BE:
+{ AAAADDE    ,
+  ADE   DJJEJ,
+  HHSUK      ,
+  A          ,
+  BB         ,
+  NJSIKFL    ,}
+That remaining spaces will be added to the Vector<string> above.
+==========================================================================================
+sometimes a vector<string> is given and you have to concantenate all the strings into one string to have neat algorithm:
+int minSwitches(vector <string> sa) {
+    string s = "";
+    int res=0;
+    for(int i=0;i<sa.size();i++)
+         s+=sa[i];
+    if(s.length == 0) return 0;
+    .........................
+     }
+====================================================================================
+find the numbers between 2 int numbers which are sum of squares:
+public static int getSums(int low,int high){
+int count=0;
+on:
+for(int i=low;i<=high;i++){
+  for(int j=0;j<=10;j++)
+    for(int k=0;k<=10;k++)
+      if(j*j+k*k==i) { count++; continue on; }
+}
+return count;
+}
+
+
+==================================================================================
+Initialization tactics in GRAPH PROBLEMS:
+vector<string> pb;
+         R = pb.length;
+         C = pb[0].length();
+         S=0;
+         arr = new int[R][C];
+         for(int i=0;i<R;i++)
+            for(int j=0;j<C;j++){
+               char ch = pb[i].charAt(j);
+               if(ch=='.'){
+                  arr[i][j]=-1;
+               }
+               else if(ch=='*')
+                  arr[i][j]=-2;
+               else
+                  arr[i][j]=ch-'0';
+            }
+
+http://www.flickr.com/photos/21459039@N05/
+
+IN Graph Array and movement problem, u may be interested in calculating probable moves by a player n a 2 D coordinate system:
+static boolean legal(){
+         for(int r=0;r<R;r++)
+            for(int c=0;c<C;c++)
+               if(arr[r][c]>=0){
+                  int t = 0;
+                  for(int dx=-1;dx<=1;dx++)
+                     for(int dy=-1;dy<=1;dy++)
+                        if(r+dx>=0&&r+dx<R&&c+dy>=0&&c+dy<C&&arr[r+dx][c+dy]==-2)
+                           t++;
+                  if(t>arr[r][c])
+                     return false;
+               }
+         return true;
+      }
+
+
+inline bool valid( int x, int y ) { if( x < 0 || y < 0 || x >= R || y >= S ) return false; return true; }
+
+
+http://www.topcoder.com/tc?module=HSProblemSolution&rd=10069&pm=3454&cr=11972352
+
+
+===================================================================================
+
+In most of the graph problmes u might wanna check the 
+Have functions based on BOOL RETURNS ONLY:
+bool better( const string &a, const string &b )  
+{
+    if( a.size() != b.size() ) return a.size() < b.size();
+    return a < b;
+}
+
+=============================================================
+For a vector<string> board = input such as this :
+
+"stifubeaonrpcwnwclwwmnhbrqxadippbiwcq", {"shlnahossnqclwkaeocnqunioggghuvsitsrjbr", "mlialjkktnpqmunwrtubmauqvooihqfriwpwdvd", "kejjvxgipfeilejvebqmgnxvljwfgqdxmqlpwtl", "llqmgtsfsgckacflheupaoexkocxoxvpjqxardb", "jgbsrpquhowewjxeuwsocklpvwrvcophbpaqifd", "pbwpwwppeaiorooootosparmwbqjnunaatlbete", "cavnfpbhvolvxqovoemfgximkuscsnrmueaqccx", "jutkiemwhadhlfsiggxsfucnvplufdasqwrtrvq", "gthaomjbioqmxkfrcbcdpilvqhqeugoijmghfof", "qujkbmepgeehxtvnefknpxcmoehruqupdbsljoh", "qmaussfjprlxbqbjrarigtkkkpcwnxbxlpbtarb", "gmbaisropkswswaiekamrebbitmlnfrccqpxrri", "krtxgkixogtbrhnjjpooshumfapqeqnhqbitomn
+
+
+Write a block as below which we increment each position out of 26 positions by 1 everytime it encounters a character which is resembling that postiiton.
+
+#define FORC(it,v) for( __typeof((v).begin()) it = (v).begin(); it != (v).end(); ++it )
+
+const int MAXN = 2501;
+
+int A[ 26 ];
+string getMin( string pool, vector <string> board, int threshold ) {
+        memset( A, 0, sizeof A );
+
+        sort( pool.begin(), pool.end() );
+        pool.resize( unique( pool.begin(), pool.end() ) - pool.begin() );
+
+        int sum = 0;
+
+        FORC( it, board ) {
+            sum += ( int )it->size();
+            FORC( a, *it ) ++A[ *a - 'a' ];
+        }
+
+string s = string (60, 'z');
+====================================================================
+
+
+
+
+
+==================================================================
+In function returning double write like this:
+
+double p = 1./n;
+
+
+1. Check for Nullability and True/False
+if(!n)
+{
+  // write ur code here
+
+  for (int i=0; i < n; i++)
+
+2. If no of cases per test case input is n,
+   
+   int n;
+	int cases;
+	cin>>cases;
+	while(cases--){
+		scanf("%d",&n);
+
+3.  Use Code to Clear while Init Constructors.
+
+for(int i=0;i<N;i++) {
+			edge[i].clear();
+			redge[i].clear();
+		}
+
+4. Code Logic to Check intersection of lines between i,j,k,l coordinates
+
+int crossp(int x0,int y0,int x1,int y1,int x2,int y2){
+	return x0*(y1-y2)+x1*(y2-y0)+x2*(y0-y1);
+}
+bool cut(int a,int b,int c,int d,int x,int y,int z,int w){
+	int d1 = crossp(a,b,c,d,x,y);
+	int d2 = crossp(a,b,c,d,z,w);
+	int d3 = crossp(a,b,x,y,z,w);
+	int d4 = crossp(c,d,x,y,z,w);
+	return d1*d2<=0 && d3*d4<=0;
+}
+bool intersect(int i,int l,int j,int k){
+	if(l+k == 1)
+	return  cut(x[i],y[i],xx[i]*(1-l)+x[i]*l,y[i]*(1-l)+yy[i]*l,
+		   x[j],y[j],xx[j]*(1-k)+x[j]*k,y[j]*(1-k)+yy[j]*k) ||
+		cut(xx[i],yy[i],xx[i]*(1-l)+x[i]*l,y[i]*(1-l)+yy[i]*l,
+		   xx[j],yy[j],xx[j]*(1-k)+x[j]*k,y[j]*(1-k)+yy[j]*k) ;
+
+	else 
+	return  cut(x[i],y[i],xx[i]*(1-l)+x[i]*l,y[i]*(1-l)+yy[i]*l,
+		   xx[j],yy[j],xx[j]*(1-k)+x[j]*k,y[j]*(1-k)+yy[j]*k) ||
+		cut(xx[i],yy[i],xx[i]*(1-l)+x[i]*l,y[i]*(1-l)+yy[i]*l,
+		   x[j],y[j],xx[j]*(1-k)+x[j]*k,y[j]*(1-k)+yy[j]*k);
+		
+
+}
+
+for(int i=0;i<N;i++) {
+			edge[i].clear();
+			redge[i].clear();
+		}
+		for(int i=0;i<n;i++)
+			for(int j=i+1;j<n;j++){
+				for(int k=0;k<2;k++)
+					for(int l=0;l<2;l++)
+					{
+						if(intersect(i,l,j,k)){
+							edge[2*i+l].push_back(2*j+1-k);
+							edge[2*j+k].push_back(2*i+1-l);
+							redge[2*j+1-k].push_back(2*i+l);
+							redge[2*i+1-l].push_back(2*j+k);
+						}
+					}
+			}
+		for(int i=0;i<N;i++) done[i] = false;
+		f.clear();
+
+
+===================================================================================
+
+5. trick to do reverse DFS after u construct the Graph with Forward Edges and Reverse Edges as in aboe trick 4.
+
+int x[2*MAXN],y[2*MAXN];
+int xx[2*MAXN],yy[2*MAXN];
+int label[2*MAXN];
+vector<int> edge[2*MAXN];
+vector<int> redge[2*MAXN];
+vector<int> f;
+bool done[2*MAXN];
+void dfs(int u){
+	done[u] = true;
+	for(int i=0;i<edge[u].size();i++) if(!done[edge[u][i]])
+		dfs(edge[u][i]);
+	f.push_back(u);
+}
+void rdfs(int u,int color){
+	done[u] = true;
+	label[u] = color;
+	for(int i=0;i<redge[u].size();i++) if(!done[redge[u][i]])
+		rdfs(redge[u][i],color);
+}
+
+
+
+===============================================================================================
+6.  DFS Classic Example similar to Above
+
+/* Only one team NostalgicMen (The University of Nottingham), was able to solv?
+                                                                              ¦
+#include <cstdio>                                                             ¦
+#include <iostream>                                                           ¦
+#include <vector>                                                             ¦
+#include <set>                                                                ¦
+#include <queue>                                                              ¦
+using namespace std;                                                          ¦
+#define MAXN 1002                                                             ¦
+vector<int> edge[MAXN];                                                       ¦
+vector<int> e[MAXN];                                                          ¦
+int parent[MAXN];                                                             ¦
+int x[MAXN][MAXN];                                                            ¦
+int y[MAXN][MAXN];                                                            ¦
+int z[MAXN][MAXN];                                                            ¦
+int n;                                                                        ¦
+int max1[MAXN],max2[MAXN];                                                    ¦
+int sum[MAXN];                                                                ¦
+int done[MAXN];                                                               ¦
+void init(){                                                                  ¦
+        for(int i=0;i<n;i++)                                                  ¦
+                for(int j=0;j<edge[i].size();j++)                             ¦
+                        x[i][edge[i][j]] = y[i][edge[i][j]] = z[i][edge[i][j]]¦
+                        x[edge[i][j]][i] = y[edge[i][j]][i] = z[edge[i][j]][i]¦
+}                                                                             ¦
+void dfs(int u)                                                               ¦
+{                                                                             ¦
+        done[u] = 1;                                                          ¦
+        for(int i=0;i<edge[u].size();i++) if(!done[edge[u][i]]){              ¦
+                parent[edge[u][i]] = u;                                       ¦
+                e[u].push_back(edge[u][i]);                                   ¦
+                dfs(edge[u][i]);                                              ¦
+        }                                                                     ¦
+}                                                                             ¦
+int calcx(int u,int v)                                                        ¦
+{                                                                             ¦
+        if(x[u][v] != -1) return x[u][v];                                     ¦
+        int & ret = x[u][v];                                                  ¦
+        ret = 1;                                                              ¦
+        for(int i=0;i<e[v].size();i++) if(e[v][i] != u){                      ¦
+                ret += calcx(v,e[v][i]);                                      ¦
+        }                                                                     ¦
+        return ret;                                                           ¦
+}   
+
+int calcy(int u,int v)
+{
+        if(y[u][v] != -1) return y[u][v];
+        int & ret = y[u][v];
+        ret = calcx(u,v);
+        for(int i=0;i<e[v].size();i++) if(e[v][i] != u){
+                ret += calcy(v,e[v][i]);
+        }
+        return ret;
+}
+int calcz(int u,int v)
+{
+        if(z[u][v] != -1) return z[u][v];
+        int & ret = z[u][v];
+        ret = calcx(u,v);
+        int max = 0;
+        for(int i=0;i<e[v].size();i++) if(e[v][i] != u)
+                max >?= calcz(v,e[v][i]);
+        ret += max;
+        return ret;
+}
+int getDvalue(int u)
+{
+        int ret = 0;
+        for(int i=0;i<edge[u].size();i++)
+                ret += y[u][edge[u][i]];
+        set<int> s;
+        for(int i=0;i<edge[u].size();i++){
+                s.insert(z[u][edge[u][i]]);
+                if(s.size()>2){
+                        s.erase(s.begin());
+                }
+        }
+        for(set<int>::iterator it = s.begin();it != s.end(); ++it)
+                ret -= *it;
+        return ret;
+}
+void update(int u)
+{
+        sum[u] = 0;
+        for(int i=0;i<edge[u].size();i++)
+                sum[u] += y[u][edge[u][i]];
+        max1[u] = max2[u] = 0;
+        for(int i=0;i<edge[u].size();i++){
+                int c = z[u][edge[u][i]];
+                               if(c>max1[u]){
+                        max2[u] = max1[u];
+                        max1[u] = c;
+                }
+                else if(c>max2[u])
+                        max2[u] = c;
+        }
+}
+void calc(int u,int v){
+        calcx(u,v);
+        calcy(u,v);
+        calcz(u,v);
+}
+main()
+{
+        int cases;
+        cin>>cases;
+        while(cases--){
+                scanf(" %d",&n);
+                for(int i=0;i<n;i++){
+                        edge[i].clear();
+                        e[i].clear();
+                }
+                for(int i=1;i<n;i++){
+                        int j,k;
+                        scanf("%d %d",&j,&k);j--;k--;
+                        edge[j].push_back(k);
+                        edge[k].push_back(j);
+                }
+                init();
+                for(int i=0;i<n;i++) done[i] = 0;
+                dfs(0);
+                for(int i=0;i<n;i++)
+                        for(int j=0;j<e[i].size();j++){
+                                calc(i,e[i][j]);
+                        }
+                queue<int> qu;
+                qu.push(0);
+                while(!qu.empty()){
+                        int u = qu.front();
+                        qu.pop();
+                        for(int i=0;i<e[u].size();i++)
+                                qu.push(e[u][i]);
+                        if(u==0) {
+                                update(0);
+                                continue;
+                        }
+
+                        }
+                        int v = parent[u];
+                        x[u][v] = n - x[v][u];
+                        y[u][v] = sum[v]-y[v][u]+x[u][v];
+                        z[u][v] = x[u][v] + (max1[v]==z[v][u]?max2[v]:max1[v])
+                        update(u);
+                }
+                int ret = 100000000;
+                for(int i=0;i<n;i++)
+                        ret <?= getDvalue(i);
+                cout<<ret<<endl;
+        }
+}
+                                                                          ¦
+
+
+=====================================================================================================
+Recursion and Clearing Variables Sets.
+#include <cstdio>
+#include <iostream>
+
+using namespace std;
+#define MAXN 1002
+#define MOD 100000000
+long long int memo[MAXN][MAXN];
+long long int doit(int n,int k){
+	if(k>=n) return 0;
+	if(k<0)  return 0;
+	if(k==0) return n==1;
+	long long int & ret = memo[n][k];
+	if(ret != -1) return ret;
+	return ret = (k*doit(n-1,k) + 2*doit(n-1,k-1) + (n-k)*doit(n-1,k-2))%MOD;
+}
+main()
+{
+	int n,k;
+	memset(memo,-1,sizeof(memo));
+	for(int i=1;i<=1000;i++)
+		for(int j=1;j<i;j++)
+			doit(i,j);
+	int cases;
+	cin>>cases;
+	while(cases--){
+		scanf("%d %d",&n,&k);
+		cout<<doit(n,k)<<endl;
+	}
+}
+
+============================================================================
+scanf("%d",&n);
+		SET.clear();
+		v.clear();
+		N = 1;
+		int temp = 2*n+1;
+		for(int i=0;temp>1;i++){
+			while(temp%pr[i]==0){
+				v.push_back(pr[i]-1);
+				temp /= pr[i];
+			}
+		}
+		N = 1;
+		reverse(v.begin(),v.end());
+		for(int i=0;i<v.size();i++){
+			for(int j=0;j<v[i]/2;j++)
+				N *= p[i];
+		}
+		go(0);
+		assert(SET.size()==n);
+		cout<<N<<endl;
+		for(set<pair<long long int,long long int> >::iterator it=SET.begin();
+				it!=SET.end();++it){
+			cout<<it->first<<endl;
+		}
+
+
+#define Maxn 50000
+int p[] = {5,13,17,29,37,41,53,61,73,89,97,101,109};
+int a[] = {1,2,1,2,1,4,2,5,3,5,4,1,3};
+int b[] = {2,3,4,5,6,5,7,6,8,8,9,10,10};
+int pr[] =  {3,5,7,11,13,17,19,23,29,31,37,41,43,47,53};
+vector<int> v;
+int n;
+long long int N;
+
+
+====================================================================
+
+char[] shiftkeys = {".", "*", "?", "+", "(", ")", "{", "}", "[", "]","^","$","^","#", "~", "@", "<", ">", "?", ":","|", "_"}
+
+public long translate(String message){
+    long code;
+ 
+    numberS = new String[10]; 
+    index = new int[10];
+ 
+    numberS[0] = new String("zero");
+    numberS[1] = new String("one");
+    numberS[2] = new String("two");
+    numberS[3] = new String("three");
+    numberS[4] = new String("four");
+    numberS[5] = new String("five");
+    numberS[6] = new String("six");
+    numberS[7] = new String("seven");
+    numberS[8] = new String("eight");
+    numberS[9] = new String("nine");
+ 
+    code = 0;
+    mess = new String(message);
+    int value = 11;
+    long current = 0;
+    String codeS = new String("0");
+    while(value != 10){
+      value = findDigit();
+      if(value!=10){
+        current*=10;
+        current+=value;
+        removeIndex(value);
+      }
+    }
+    return current;
+  }
+
+
+
+
+Find the longest common substring between the two passed Strings.  The
+substring can be any part of the String, including the entire String.  If there
+is no common substring, return 0.  The search IS case sensitive ('x' != 'X').
+ JAVA CODE:
+
+public class CompareSubstring {
+ 
+  public int findLongest(String s1, String s2) {
+    int ret = 0;
+    boolean done = false;
+    while (!done && (ret < s1.length()) && (ret < s2.length())) {
+      int i = ret+1;
+      done = true;
+      for (int j = 0; j < s1.length()-i+1; j++) {
+        for (int k = 0; k < s2.length()-i+1; k++) {
+          if (s1.substring(j,j+i).equals(s2.substring(k,k+i))) {
+            done = false;
+          }
+        }
+      }
+      if (!done) {
+        ret++;
+      }
+    }
+    return ret;
+  }
+
+public long translate(String message){
+    String resultNumber = "";
+    StringBuffer buff = new StringBuffer(message.toLowerCase());
+    boolean completed = false;
+    while (!completed){
+      String temp = parseNumber(buff);
+      if (temp == null) completed = true;
+      else resultNumber += temp;
+    }
+    if (resultNumber.length() > 0) return Long.parseLong(resultNumber);
+    return 0;
+  }
+
+=========================================================================================
+Remove a text from a string::
+
+public String removeString(String s, String text) {
+    char[] c = s.toCharArray();
+    StringBuffer buf = new StringBuffer();
+    boolean found = false;
+    int index = 0;
+    for (int j = 0; j < text.length(); j++) {
+      char d = text.charAt(j);
+      if ((!found) && (c[index] == d)) {
+        index++;
+        if (index == c.length) {
+          found = true;
+        }
+      } else {
+        buf.append(d);
+      }
+    }
+    return buf.toString();
+  }
+
+============================================================================================
+In Csharp use the following codes:
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Text;
+using System.Text.RegularExpressions;
+
+int retQty;
+while(true)
+{
+  int maxid = 0;
+  for(int i = 0; i < votes.Length; ++i)
+	{
+		maxid = Math.Max(votes[i], votes[maxid]) = votes[i] ? i : maxid
+	}
+  if(maxid == 0)
+       break;
+
+  else
+	{
+		...
+	}
+
+}
+return retQty;
+
+
+==============================================================
+String matching:
+private int S(string a, string b)
+    {
+        a = a.ToLower();
+        b = b.ToLower();
+        int[] A = new int[256];
+        int[] B = new int[256];
+        foreach (char c in a)
+        {
+            A[c]++;
+        }
+        foreach (char c in b)
+        {
+            B[c]++;
+        }
+        int r = 0;
+        for (int i = 0; i < 256; i++)
+        {
+            r += Math.Min(A[i], B[i]);
+        }
+        return r;
+    }
+
+
+
+
+
+private bool IsPrime(int n)
+    {
+        if (n < 4) { if (n == 1) return false; return true; }
+        if ((n & 1) == 0) return false;
+        int g = (int)Math.Sqrt(n) + 1;
+        for (int i = 3; i < g; i += 2)
+        { if (n % i == 0) return false; }
+        return true;
+    }
+
+long r = 1;
+for (int i = 2; i <= n; i++)  -- USE THIS BLOCK ALWAYS IN PRIMES FACTORIATION
+        {
+            if (IsPrime(i))
+            {
+                // do stuff here
+            }
+        }
+        return (int)r;
+
+
+
+======================================================================================
+int min = 0;
+        int max = 0;
+        int mi = int.MaxValue;
+        int ma = int.MinValue;
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (a[i] > ma)
+            {
+                ma = a[i];
+                max = i;
+            }
+            if (a[i] <mi)
+            {
+                mi = a[i];
+                min = i;
+            }
+        }
+
+
+===============================================================================
+double g = 0;
+        for (int i = 0; i < N; i++)
+        {
+            if (E[i] != 1000)
+            {
+                g += (double)(damage) / Math.Pow(2, E[i]);
+            }
+        }
+        return g;
+
+==============================================================
+int m = 0;
+        List<int> A = new List<int>();
+        List<int> B = new List<int>();
+        foreach (int i in books)
+        {
+            if (i > 0)
+            {
+                A.Add(i);
+                m = Math.Max(m, i);
+            }
+            else
+            {
+                B.Add(-i);
+                m = Math.Max(m, -i);
+            }
+        }
+        A.Sort();
+        A.Reverse();
+        B.Sort();
+        B.Reverse();
+        m*=-1;
+        for (int i = 0; i < A.Count; i += N)
+        {
+            m += A[i]*2;
+        }
+        for (int i = 0; i < B.Count; i += N)
+        {
+            m += B[i]*2;
+        }
+        return m;
+
+=======================================================================
+
+public string[] preprocess(string query, string[] common) 
+    {
+        List<string> A = new List<string>(query.Split(' '));
+        List<string> B = new List<string>(common);
+        for (int i = 0; i < A.Count; i++)
+        {
+            if (B.Contains(A[i]) || A.LastIndexOf(A[i]) > i)
+            {
+                A.RemoveAt(i);
+                i--;
+            }
+        }
+        A.Sort(); 
+        return A.ToArray();
+    }
+
+===========================================================
+bool isInsideSqare(int x, int y, int w, int h, int a, int b) 
+    { 
+        return ((a <= x + w && a >= x) && (b <= y + h && b >= y)); 
+    } 
+    bool isInsideCircle(int xc, int yc, int r, int a, int b) 
+    { 
+        return ((a - xc) * (a - xc) + (b - yc) * (b - yc)) <= r * r; 
+    } 
+
+class Point 
+    { 
+        public int x; 
+        public int y; 
+    } 
+int psort(Point p1, Point p2) 
+    { 
+        int c; 
+        c = ((IComparable<int>)p1.x).CompareTo(p2.x); 
+        if (c != 0) return c; 
+        return ((IComparable<int>)p1.y).CompareTo(p2.y); 
+    } 
+
+
+pts.Sort(psort); 
+        List<string> res = new List<string>(); 
+        for (i = 0; i < pts.Count; ++i) 
+            res.Add(String.Format("{0} {1}", pts[i].x, pts[i].y)); 
+        return res.ToArray(); 
+
+for (i = 0; i < n; ++i) 
+        { 
+            photo[i] = new char[m]; 
+            for (j = 0; j < m; ++j) photo[i][j] = photo1[i][j]; 
+        } 
+
+
+nem = new bool[n+2, n+2]; 
+        megoldas = ""; 
+        lepes = 0; 
+        for (int i = 0; i < n + 2; i++) 
+            for (int j = 0; j < n + 2; j++) 
+                nem[i, j] = true; 
+        for (int i=0;i<n+2;i++) 
+        { 
+            nem[i, 0] = false; 
+            nem[0, i] = false; 
+            nem[i, n+1] = false; 
+            nem[n+1, i] = false; 
+        } 
+
+
+
+Checking for divisibilities:
+=====================================
+public class DivisibleByDigits
+{
+    static List<int> a = new List<int>();
+    public static bool ch(long nom)
+    {
+        bool fl = true;
+        for (int i = 0; i < a.Count; i++)
+        {
+            if (nom % a[i] != 0) fl = false;
+        }
+        return fl;
+    }
+    public long getContinuation(int n)
+  {
+        int n2 = n;
+        
+        while (n2 > 0)
+        {
+            if (n2%10!=0) a.Add(n2 % 10);
+            n2 /= 10;
+        }
+        long nc = n;
+        if (ch(nc)) return nc;
+        nc *= 10;
+        for (int i = 0; i < 10; i++)
+        {
+            if (ch(nc + i)) return nc + i;
+        }
+        nc *= 10;
+        for (int i = 0; i < 100; i++)
+        {
+            if (ch(nc + i)) return nc + i;
+        }
+        nc *= 10;
+        for (int i = 0; i < 1000; i++)
+        {
+            if (ch(nc + i)) return nc + i;
+        }
+        nc *= 10;
+        for (int i = 0; i < 10000; i++)
+        {
+            if (ch(nc + i)) return nc + i;
+        }
+        nc *= 10;
+        for (int i = 0; i < 100000; i++)
+        {
+            if (ch(nc + i)) return nc + i;
+        }
+        nc *= 10;
+        for (int i = 0; i < 1000000; i++)
+        {
+            if (ch(nc + i)) return nc + i;
+        }
+        nc *= 10;
+        for (int i = 0; i < 10000000; i++)
+        {
+            if (ch(nc + i)) return nc + i;
+        }
+        nc *= 10;
+        for (int i = 0; i < 100000000; i++)
+        {
+            if (ch(nc + i)) return nc + i;
+        }
+        nc *= 10;
+        for (int i = 0; i < 1000000000; i++)
+        {
+            if (ch(nc + i)) return nc + i;
+        }
+        return 0;
+  }
+
+===========================================================
+
+Check a primality ofa number:
+//From http://www.richelbilderbeek.nl/CppPrime.htm
+
+bool IsPrime(const int x)
+
+{
+
+  //Only positive numbers are prime
+
+  if(x <= 0) { return false; }
+
+  //1 and 2 are prime (although if 1 is prime can be debated)
+
+  if(x < 3) { return true;  }
+
+  //Even numbers are not prime
+
+  if(x % 2 == 0) { return false; }
+
+ 
+
+  const int halfX = x/2;
+
+  for (int i=3; i<halfX; i+=2)
+
+  {
+
+    if (x % i == 0) return false;
+
+  }
+
+  return true;
+
+}
+
+==============================================================================
+ CODE TYPES: -- Search in NET for codes/Algos
+1.  Job Sequencing with Deadlines while Maximizing Profits 
+2.  Matrix Multiplication 
+3.   Merge Sort 
+4. regular expression to NFA
+5. Word frequency
+6. Progam that gives all details of a Triangle given the lengths of its sides   
+7.  Program to Calculate roots of 4th order algebraic equation     
+8.  Program to find your Day of Birth given Date of Birth     
+9.  Program to print all possible permutations of first n natural nos     
+10. Program to solve a 3 Variable Linear Equation     Solving Quadratic Equations using Factorisation
+See all above code at http://www.cplusplus.happycodings.com/Mathematics/index.html
+
+
+==============================================================================
+#define oo (2147483647)
+ 
+string NumToStr(int num)
+{
+  ostringstream ostr;
+  ostr << num;
+  ostr.flush();
+  return ostr.str();
+}
+ 
+int StrToNum(string str) -- FOR A STRING LIKE {1,3,5,7,9,1,5} = 1357915 IS THE INTEGER OUTPUT
+{
+  int num;
+  istringstream istr(str);
+  istr >> num;
+  return num;
+}
+ 
+string sval;
+ 
+int NumFactors(int num)
+{
+  int i;
+  int n=0;
+  for (i=1; i<=num; i++)
+  {
+    if (num%i==0)n++;
+  }
+  return n;
+}
+ 
+
+int number(vector <int> digits) -- liek {1,2,5,7,8} 
+  {
+    int i;
+    for (i=0; i<digits.size(); i++)
+    {
+      sval=sval+(char)(digits[i]+'0'); --  sval string would be "12578"  to sort the string sval; u use sort(sval.begin(), sval.end()); 
+    }  
+    return BackTrack();
+  }
+
+Convention is like:
+Int Backtrack()
+{
+`-- sort the string val here --
+ sort(sval.begin(), sval.end());
+ -- towor on various permutations of the string sval ie to work on string 12578, 12758, 12875, 87215, etc.....
+do
+{
+  int numfactors = NumFactors(StrToNum(sval));
+  if(numFactors < bestFactors)
+	{
+		bestfactors = numfactors;
+	}
+
+
+} while(next_permutation(sval.begin(), sval.end());
+}
+
+
+instead of Next_permutation() in a while u can also permute on a string using :
+while(1)
+{
+
+ .../// Do some opreations and looping and big num allocations.
+...///Do some opreations on bounds checking and field evaluations.
+ 
+if(!next_permutation(sval.begin(), sval.end())) break;
+// OR an Array int c[10]; do next_permutation(c, c+10);
+
+}
+
+===================================================================================
+Efficient factors finding Algorithms by Ying of Topcoder:
+int factors(int a){ 
+    int i,j=1,k; 
+    if (a==1) return 1; 
+    for(i=2;i*i<=a;i++){ 
+      if (a%i==0){ 
+        k=1; 
+        while(a%i==0){ 
+          a/=i; 
+          k++; 
+        } 
+        j*=k; 
+      } 
+    } 
+    if (a!=1) j*=2; 
+    return j; 
+  } 
+
+
+=================================================================================
+To find the max fare from any point in a matrix to any other point:
+{"--B-", "B---", "-B-B", "B---"} 
+
+int maximumFare(vector <string> blocks)
+  {
+    vector < pair <int, int> > stop;
+    for (int i = 0; i < blocks.size(); i++)
+      for (int j = 0; j < blocks[i].size(); j++)
+        if (blocks[i][j] == 'B')
+          stop.push_back(make_pair(i, j));
+    int ans = 0;
+    for (int i = 0; i < stop.size(); i++)
+      for (int j = i + 1; j < stop.size(); j++)
+        ans = max(ans, abs(stop[i].first - stop[j].first) + abs(stop[i].second - stop[j].second));
+    return ans;
+  }
+
+
+
+==============================================================
+topcoder shortcuts:
+====================================
+
+Given an input as time: "10:00", "12:45"
+int hr,m; 
+  hr = (time[0]-'0')*10 + (time[1]-'0'); 
+  m = (time[3]-'0')*10 + (time[4]-'0'); 
+  if(m != 0) 
+    hr = (hr + 1)%12; 
+  hr = (12 - hr)%12; 
+  m = (60 - m)%60; 
+
+
+
+And to convert Hrs and mins back to string use:
+string ans; 
+
+  ans.append(1,(char)(hr/10 + '0')); 
+  ans.append(1,  (char)(hr%10 + '0')); 
+  ans.append(":"); 
+  ans.append(1,(char)(m/10 + '0')); 
+  ans.append(1,(char)(m%10 + '0')); 
+  return ans; 
+
+
+
+The Time value is stored in the lower 17 bits of the 32-bit quantity. This means that we don't have to worry about overflow while converting between signed and unsigned formats:
+
+' Strip off any vestigal seconds, handle signed/unsigned issues.
+    If T < 0 Then T = T + &H10000
+    T = T And &H1FFFF
+
+
+' Calculate hours, minutes and seconds based
+    Hours = T \ 3600
+    Minutes = (T \ 60) Mod 60
+    Seconds = T Mod 60
+
+
+==========================================

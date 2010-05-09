@@ -1,0 +1,756 @@
+1. formulas for counting the 1-bits in a word
+2. isolating the rightmost 1-bit
+3. flipping the rightmost contiguous string of 1-bits
+4. shifting and propagating bits
+5. reversing the order of bits and bytes, transposing a matrix
+
+
+Code examples are given either in C or in a simplified assembly language the book defines for 32-bit RISC machines.
+
+x	= 8
+x	= 0000 1000
+x-1	= 0000 0111
+X & (X-1) = 0000 0000
+
+tHEREFORE X IS AN EVEN NUMBER
+
+=============================================================================
+1. return (x & 0xfffffffc) | ((x & 1) << 1) | ((x & 2) >> 1);
+ // Swap rightmost 2 bits.
+
+
+2. But on a 32 bit machine: min(x,y) = y+((x-y)>>31)&(x-y) 
+
+3.  sa = (s >> (i+1)) & 1;      // Get bit i+1 of s.
+  
+    sb = (s >> i) & 1;          // Get bit i of s.  
+
+4. if ((sa ^ sb) == 0) {       // If sa,sb = 00 or 11,
+
+
+5.  x = (x >> 1) | (sa << 31);  // Prepend sa to x and
+      
+    y = (y >> 1) | ((sa ^ sb) << 31); // (sa^sb) to y.
+  
+
+6. s = s | (0x55555555 << 2*n); // Pad s on left with 01
+   
+   sr = (s >> 1) & 0x55555555;  // (no change) 
+
+7. /* Round up to a power of 2. */
+
+unsigned clp2(unsigned x) {
+   x = x - 1;
+   x = x | (x >> 1);
+   x = x | (x >> 2);
+   x = x | (x >> 4);
+   x = x | (x >> 8);
+   x = x | (x >>16);
+   return x + 1;
+}
+
+8. /* Round down to a power of 2. */
+
+unsigned flp2(unsigned x) {
+   x = x | (x >> 1);
+   x = x | (x >> 2);
+   x = x | (x >> 4);
+   x = x | (x >> 8);
+   x = x | (x >>16);
+   return x - (x >> 1);
+}
+
+9. (a & ~(b-1)). Of course, ~(b-1) is also -b, so (a & -b) 
+
+10. how to count the number of dissimilar bits between two numbers :
+int getdissimilar(int diff)
+{
+  int nwear = 0;
+  for(int i=0;i<sizeof(int)*8; i++)
+  {
+     nwear+=diff&1;
+     diff = diff <<1;
+  }
+   return nwear;
+
+}
+
+11. int x;  // we want to find the minimum of x and y
+int y;   
+int r;  // the result goes here 
+
+r = y + ((x - y) & -(x < y)); // min(x, y)
+
+
+
+12. r = x - ((x - y) & -(x < y)); // max(x, y)
+
+13. COUNTING THE NUMBER OF BITS SET IN v :
+unsigned int v; // count the number of bits set in v
+unsigned int c; // c accumulates the total bits set in v
+
+for (c = 0; v; v >>= 1)
+{
+  c += v & 1;
+}
+
+
+14. Use either of the following formulas to turn off the rightmost contiguous
+string of 1-bits (e.g., 01011000 ==> 01000000) [Wood]:  (((x | (x– 1))+ 1)& x), or
+((x& –x)+ x)& x
+
+15. Given 2 unsigned Ints : int x1, y1, we have to clear bits where both are 1, in both of them and produce two new ints x2 and y2,
+
+x2 = x1 & ~y1;
+y2 = y1 & ~x1;And to clear 1 bit from each,
+x3 = x2 & (x2 - 1)
+y3 = y2 & (y2 - 1)
+
+
+16. 
+ Flipping the ith bit in x between 0 and 1 in every iteration of a for loop or in a if() conditino block..use 
+x = x ^ (1 << i)
+
+17. x = (x << 3) - x; // Multiply by 7.
+x = (x << 8) - x; // Multiply by 255.
+
+18. 
+y = x & -x; // Isolate rightmost 1-bit.
+bz = y ? 0 : 1; // 1 if y = 0.
+ 
+He uses the expression x & -x to reduce the number of possible values to a small number. The value of this expression is a
+word that contains a single 1-bit at the position of the least significant 1-bit in x,
+or is 0 if x = 0. Thus x & -x has only 33 possible values...But they are not dense, they range from 0  to 2**31.
+Since x & -x is an integral power of 2 or is
+0, the multiplication amounts to a left shift of the constant, or it is a multiplication
+by 0.
+
+
+19. As an example, if x is an odd multiple of 16, then x & -x = 16...
+
+20. If u wanna clear or mask out all the bits in x except 0th bit u do x = x & (1 << 0) 
+or x= x & 1; then u may check for the 0th bit by querying in a if() like:
+x1 = x & 1;
+if(x1 & (1<<0) != 0)....
+
+
+20. MASKS: A mask is a value used to force certain bits to zero or one within some other value. A mask typically affects certain bits in an operand (forcing them to zero or one) and leaves other bits unaffected. The appropriate use of masks allows you to extract bits from a value, insert bits into a value, and pack or unpacked a packed data type.
+
+As an example, consider the ASCII codes for the digits "0".."9". Their codes fall in the range 0x30..0x39 respectively.  To convert an ASCII digit to its corresponding numeric value, you must subtract 30h from the ASCII code. This is easily accomplished by logically anding the value with 0x0F. This strips (sets to zero) all but the L.O. four bits producing the numeric value
+
+liek char x = '9';
+     int xn = x & 0x0F  OR u may do... int xn = x - 0x30;
+
+21. Much as you can use the and instruction to force selected bits to zero, you can use the or instruction to force selected bits to one. This operation is called masking in bits. 
+
+Remember the masking out operation described earlier with the and instruction? In that example we wanted to convert an ASCII code for a digit to its numeric equivalent. You can use the or instruction to reverse this process. That is, convert a numeric value in the range 0..9 to the ASCII code for the corresponding digit, i.e., '0'..'9'. To do this, logically or the specified numeric value with 30h. 
+
+22. By packing data, you may be able to reduce memory requirements for your data by inserting two or more values into a single byte or word. The cost for this reduction in memory use is lower performance. It takes time to pack and unpack the data. Nevertheless, for applications that aren't speed critical (or for those portions of the application that aren't speed critical), the memory savings might justify the use of packed data. 
+
+The data type that offers the most savings when using packing techniques is the boolean data type. To represent true or false requires a single bit. Therefore, up to eight different boolean values can be packed into a single byte. This represents an 8:1 compression ratio, therefore, a packed array of boolean values requires only one-eighth the space of an equivalent unpacked array (where each boolean variable consumes one byte). For example, the Pascal array 
+
+	B:packed array[0..31] of boolean; 
+
+requires only four bytes when packed one value per bit. When packed one value per byte, this array requires 32 bytes
+
+
+
+
+
+
+23. if u want to mask out(means making that bit as 0) ith bit in x use: x=x & (1<<i)
+    if we wanna prepare a User defined mask such that ith, i+1th i+7th and i-2th bit is 0 in x
+	use:
+x1 = x & (1 << i)
+x2 = x & (1 << i+1)
+x3 = x & (1 << i+7)
+x4 = x & (1 << i-3)
+
+so, we got our super duper mask for checking other integers in variable space as x4 where the above bits are zeroed out.
+
+24. 
+We can pack the 31 distinct values of an int in the higher order 5 bits of an integer x by >> by 5, OR
+in the lower order 5 bits by << 5...
+
+
+25. Some times we do wanna check for if a bit i is set/uset in a integer x using x & (1<<i) checks if if() blocks
+    we also wanna check that whether every 4th bit is set/unset in x by using (x/4) & (1<<(i%4))
+
+26. f I wanna create a mask for testing the 1st, 2nd, 3rd and 4th bit in sequence in a binary form....I am preparing my mask as (1<<1)+1<<2)+1<<3)+(1<<4)
+
+27. x = x ^ 1; shift all bits in x to their alternative bits. 0->1 and 1->0
+
+28. Example: need to record whether a sample contains any mercury, phosphorus, or chlorine
+Use bit 1 for mercury, bit 2 for phosphorus, bit 3 for chlorine
+Define constants to test for particular elements
+#            hex     binary
+MERCURY    = 0x01  # 0001
+PHOSPHORUS = 0x02  # 0010
+CHLORINE   = 0x04  # 0100
+
+# Sample contains mercury and chlorine
+sample = MERCURY | CHLORINE
+print 'sample: %04x' % sample
+
+# Check for various elements
+for (flag, name) in [[MERCURY, "mercury"],
+                     [PHOSPHORUS, "phosphorus"],
+                     [CHLORINE, "chlorine"]]:
+    if sample & flag:
+        print 'sample contains', name
+    else:
+        print 'sample does not contain', name
+
+sample: 0005
+sample contains mercury
+sample does not contain phosphorus
+sample contains chlorine
+
+29.  The following table shows some operations that can be done either with a line of code or one of the API methods: 
+
+y= all 0 bits y= 0; 
+y= all 1 bits y= -1 
+y= all zeros except for the rightmost or least significant bit y= 1; 
+y= all zeros except for the leftmost or sign bit y= Integer.MIN_VALUE; 
+y= the rightmost 1-bit of x y= x & (-x) 
+y= the leftmost 1-bit of x y= Integer.highestOneBit(x); 
+y= the rightmost 0-bit of x y= ~x & (x + 1) 
+y= x with the rightmost 1-bit turned off  y= x & (x - 1) 
+y= x with the rightmost 0-bit turned off  y= x | (x + 1) 
+y= the number of leading zeros in x  y= Integer.numberOfLeadingZeros(x);  
+y= the number of trailing zeros in x  y= Integer.numberOfTrailingZeros(x);  
+y= the number of 1 bits in x y= Integer.bitCount(x); 
+y= x with the bits reversed y= Integer.reverse(x); 
+y= x after a rotated shift left by c units  y= Integer.rotateLeft(x,c); 
+y= x after a rotated shift right by c units  y= Integer.rotateRight(x,c); 
+y= x with the bytes reversed y= Integer.reverseBytes(x); 
+
+
+
+30. public static int highestOneBit(int i)
+{
+  i |= (i >> 1);
+  i |= (i >> 2);
+  i |= (i >> 4);
+  i |= (i >> 8);
+  i |= (i >> 16);
+  return i - (i >>> 1);
+}
+
+
+31. Quick quiz: how do you rewrite the statement below, which alternates between two constants, without a conditional? 
+
+if (x == a) x= b;
+  else x= a;
+Answer: 
+
+x= a ^ b ^ x;
+//where x is equal to either a or b
+
+
+32. Number to integer conversion
+Using int(x) is 10% faster in AS3. Still the bitwise version works better in AS2.
+
+x = int(1.232)//equals:x = 1.232 >> 0;
+
+33. Extracting color components
+Not really a trick, but the regular way of extracting values using bit masking and shifting.
+
+//24bitvar color:uint = 0x336699;
+var r:uint = color >> 16;
+var g:uint = color >> 8 & 0xFF;
+var b:uint = color & 0xFF;
+//32bitvar color:uint = 0xff336699;
+var a:uint = color >>> 24;
+var r:uint = color >>> 16 & 0xFF;
+var g:uint = color >>>  8 & 0xFF;
+var b:uint = color & 0xFF;
+
+34. Combining color components
+‘Shift up’ the values into the correct position and combine them.
+
+//24bitvar r:uint = 0x33;
+var g:uint = 0x66;
+var b:uint = 0x99;
+var color:uint = r << 16 | g << 8 | b;
+//32bitvar a:uint = 0xff;
+var r:uint = 0x33;
+var g:uint = 0x66;
+var b:uint = 0x99;
+var color:uint = a << 24 | r << 16 | g << 8 | b;
+
+
+35. Increment/decrement
+This is much slower than the pre/post decrement operator, but a nice way to obfuscate your code ;-)
+
+i = -~i; // i++
+i = ~-i; // i--
+
+36. Sign flipping using NOT or XOR
+Strangely enough, this is 300%(!) faster.
+
+i = -i;
+//equals
+i = ~i + 1;
+//or
+i = (i ^ -1) + 1;
+
+
+37. Fast modulo operation using bitwise AND
+If the divisor is a power of 2, the modulo (%) operation can be done with:
+modulus = numerator & (divisor - 1);
+This is about 600% faster.
+
+x = 131 % 4;
+//equals:
+x = 131 & (4 - 1);
+
+38. Check if an integer is even/uneven using bitwise AND
+This is 600% faster.
+
+isEven = (i % 2) == 0;//equals:isEven = (i & 1) == 0;
+
+39. Absolute value
+Forget Math.abs() for time critical code. Version 1 is 2500% faster than Math.abs(), and the funky bitwise version 2 is again 20% faster than version 1.
+
+//version 1
+i = x < 0 ? -x : x;
+//version 2
+i = (x ^ (x >> 31)) - (x >> 31);
+
+40. Comparing two integers for equal sign
+This is 35% faster.
+
+eqSign = a * b > 0;//
+equals:eqSign = a ^ b >= 0;
+
+41. 
+
+
+
+Bitwise Tricks
+C code Description Obtained from 
+a ^= b; b ^= a; a ^= b; 			Swap a and b around ComputerShopper 
+c & -c or c & (~c + 1) 				return first bit set Eivind Eklund 
+~c & (c + 1) 					return first unset bit Eivind Eklund 
+
+					
+unsigned i, c = <number>;
+for (i = 0; c; i++) c ^= c & -c; 		i will contain the number of bits set in c Eivind Eklund 
+
+
+
+m = (m & 0x55555555) + ((m & 0xaaaaaaaa) >> 1);
+m = (m & 0x33333333) + ((m & 0xcccccccc) >> 2);
+m = (m & 0x0f0f0f0f) + ((m & 0xf0f0f0f0) >> 4);
+m = (m & 0x00ff00ff) + ((m & 0xff00ff00) >> 8);
+m = (m & 0x0000ffff) + ((m & 0xffff0000) >> 16); m will now contain number of bits set in the original m popcnt in FreeBSD's sys/i386/i386/mp_machdep.c 
+
+
+v -= ((v >> 1) & 0x55555555);
+v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
+v = (v + (v >> 4)) & 0x0F0F0F0F;
+v = (v * 0x01010101) >> 24; 			v will now contain number of bits set in the original v popcnt comment in FreeBSD's 						sys/i386/i386/mp_machdep.c 
+
+
+
+#define BITCOUNT(x) (((BX_(x)+(BX_(x)>>4)) & 0x0F0F0F0F) % 255)
+#define BX_(x) ((x) - (((x)>>1)&0x77777777) \
+- (((x)>>2)&0x33333333) \
+- (((x)>>3)&0x11111111)) 			macro to return number of bits in x (assumes 32bit integer) BSD fortune 
+
+
+
+n = ((n >> 1) & 0x55555555) | ((n << 1) & 0xaaaaaaaa);
+n = ((n >> 2) & 0x33333333) | ((n << 2) & 0xcccccccc);
+n = ((n >> 4) & 0x0f0f0f0f) | ((n << 4) & 0xf0f0f0f0);
+n = ((n >> 8) & 0x00ff00ff) | ((n << 8) & 0xff00ff00);
+n = ((n >> 16) & 0x0000ffff) | ((n << 16) & 0xffff0000); 			reverse bits in a 32bit integer BSD fortune 
+
+
+
+popcnt(x ^ (x - 1)) & 31 					return first bit set in x, where popcnt returns number of bits set Peter Wemm 
+			
+
+ffs using a lookup table return first bit set Colin Percival 
+
+
+
+=========================================================
+TO FIND THE BITCOUNT IN INTEGER - X
+
+int bitcount(unsigned char x) 
+ 
+		 { int count;
+ 
+				 for (count=0; x != 0; x>>=1);
+						 if ( x & 01)
+								 count++;
+				 return count;
+		 }	
+
+================================================================
+
+Bitwise Q & A:
+
+# define UNITY 0x00000001
+
+Q: I want to raise a number to a power of x 2^x?
+A:
+#define TWOPWR( x ) UNITY << (x) int z = TWOPWR(x) ; 
+
+Q: I want to a get a bit of position pos from x?
+A:
+#define GETBIT(x,pos) ( ((x) & ( UNITY << (pos) ))!=0 ) unsigned x = 25 ; bool bit = GETBIT(x,5) ; 
+
+Q: I want to a set a bit of position pos from x by true?
+A:
+#define SETBIT(x,pos) ( (x) | ( UNITY << (pos) ) ) unsigned x = 25 ; x = SETBIT(x,10) ; 
+
+Q: I want to a reset a bit of position pos from x by false?
+A:
+#define RESETBIT(x,pos) ( (x) & ~( UNITY << (pos) ) ) unsigned x = 25 ; x = RESETBIT(x,0) ; 
+
+Q: I want to a reset a bit of position pos from x by false?
+A:
+#define ISPWRTWO(x) (!((x) & ((x) - 1))
+bool bit = ISPWRTWO(5) ;
+
+Q: I want to swap 2 variables a, b without external space?
+A:
+#define SWAP(x, y) (((x) ^= (y)), ((y) ^= (x)), ((x) ^= (y)))
+int d = 8 , e = 9 ;
+SWAP(d,e) ;
+
+
+==================================================================
+y= the rightmost 0-bit of x y= ~x & (x + 1) 
+y= x with the rightmost 1-bit turned off  y= x & (x - 1) 
+y= x with the rightmost 0-bit turned off  y= x | (x + 1) 
+y= the rightmost 1-bit of x y= x & (-x) 
+
+public static int highestOneBit(int i)
+{
+  i |= (i >> 1);
+  i |= (i >> 2);
+  i |= (i >> 4);
+  i |= (i >> 8);
+  i |= (i >> 16);
+  return i - (i >>> 1);
+}
+
+The following program uses the Bitwise Shift Right and Bitwise And to display a number as a 16-bit binary number. The number is shifted right successively from 16 down to zero and Bitwise And'ed with 1 to see if the bit is set. An alternative method would be to use successive masks with the Bitwise Or operator. 
+
+binary.c
+
+#include <stdio.h> 
+
+int main()
+
+{
+
+    int counter, num;
+
+    printf("Enter a number: ");
+
+    scanf("%d", &num);
+
+    printf("%d is binary: ", num);
+
+    for (counter=15; counter>=0; counter--)
+
+        printf("%d", (num >> counter) & 1);
+
+    putchar('\n');
+
+    return 0;
+
+} 
+
+
+
+===========================================================================
+Beware! Shift is not the same as rotate. When rotating, the MSBit is moved
+to the LSBit position whereas in a shift opration, the LSBit is set to 0.
+
+To illustrate using a 4-bit variable with the initial bitpattern 1100:
+
+Value after shift: 1000
+
+Value after rotate: 1001
+
+A solution might look something like:
+
+int Rotate( int x )
+{
+if( 0x80000000 & x )
+return (x << 1) | 0x00000001;
+else
+return x << 1;
+}
+
+
+
+You'll probably need to add some error checking & input validation,
+but something like this seems to work:
+
+int rotateBits = 3;
+int dataSize = 16;
+bool rotateleft = true; // false = right
+
+uint value = 0xABCD;
+uint mask = (uint)((1 << dataSize) - 1);
+if (rotateleft)
+value = ((value << rotateBits) | (value >> (dataSize - rotateBits)))
+& mask;
+else
+value = ((value >> rotateBits) | (value << (dataSize - rotateBits)))
+& mask;
+
+===============================================================================
+Toggling a bit and leaving all other bits unchanged
+x = x ^ mask; 
+(or shorthand x ^= mask;) 
+Bits that are set to 1 in the mask will be toggled in x. 
+Bits that are set to 0 in the mask will be unchanged in x. 
+
+Toggling means that if the bit is 1, it is set to 0, and if the bit is 0, it is set to 1. 
+
+====================================================================
+Setting a bit to zero and leaving all other bits unchanged
+x = x & mask; 
+(or x &= mask;) 
+Bits that are set to 1 in the mask will be unchanged in x. 
+Bits that are set to 0 in the mask will be set to zero in x.
+
+====================================================================
+Setting a bit to one and leaving all other bits unchanged
+x = x | mask; 
+(or x |= mask;) 
+Bits that are set to 1 in the mask will be set to one in x. 
+Bits that are set to 0 in the mask will be unchanged in x.
+====================================================================
+Common Flag Values
+I prefer to use the hexadecimal representation in my code. 
+
+Binary(base2)	Hexadecimal(base16) 	Decimal(base10) 
+0000 0000 		0x00 		0 
+0000 0001 		0x01 		1 
+0000 0010 		0x02		 2 
+0000 0100 		0x04		 4 
+0000 1000 		0x08 		8 
+0001 0000 		0x10 		16 
+0010 0000 		0x20 		32 
+0100 0000 		0x40 		64 
+1000 0000 		0x80 		128 
+
+
+===========================================================================
+Example Macros
+Imagine there are two flags in the program that are independent of each other. We might implement macros to manipulate them as shown in the code sample below. It would probably be wise to put the macros in a header file. 
+
+// the flag definitions
+#define CAR_LOCKED    0x01  // 0000 0001
+#define CAR_PARKED    0x02  // 0000 0010
+#define CAR_RESET     0x00  // 0000 0000
+
+// macros to manipulate the flags
+#define RESET_CAR(x)     (x = CAR_RESET)
+
+#define SET_LOCKED(x)    (x |= CAR_LOCKED)
+#define SET_PARKED(x)    (x |= CAR_PARKED)
+
+#define UNSET_LOCKED(x)  (x &= (~CAR_LOCKED))
+#define UNSET_PARKED(x)  (x &= (~CAR_PARKED))
+
+#define TOGGLE_LOCKED(x)  (x ^= CAR_LOCKED)
+#define TOGGLE_PARKED(x)  (x ^= CAR_PARKED)
+
+// these evaluate to non-zero if the flag is set
+#define IS_LOCKED(x)      (x & CAR_LOCKED)
+#define IS_PARKED(x)      (x & CAR_PARKED)
+
+// a short program that demonstrates how to use the macros
+int
+main(void)
+{
+	unsigned char fMercedes, fCivic;
+
+	RESET_CAR(fMercedes);
+	RESET_CAR(fCivic);
+
+	SET_LOCKED(fMercedes);
+
+	if( IS_LOCKED(fMercedes) != 0 )
+	{
+		UNSET_PARKED(fCivic);
+	}
+
+	TOGGLE_LOCKED(fMercedes);
+
+	return 0;
+}
+============================================================================================
+static void ShowBits (ushort x)
+        {
+            int size;
+            unsafe
+            {
+                size = sizeof (short) * 8;
+            }
+            for (int i = size - 1; i >= 0; --i)
+            {
+                Console.Write ((x >> i) & 1);
+                if ((i % 4) == 0)
+                    Console.Write (' ');
+            }
+        }
+=====================================================================
+/*
+C#: The Complete Reference 
+by Herbert Schildt 
+
+Publisher: Osborne/McGraw-Hill (March 8, 2002)
+ISBN: 0072134852
+*/
+// Use XOR to encode and decode a message. 
+ 
+using System; 
+ 
+public class Encode {  
+  public static void Main() { 
+    char ch1 = 'H'; 
+    char ch2 = 'i'; 
+    char ch3 = '!'; 
+ 
+    int key = 88; 
+ 
+    Console.WriteLine("Original message: " + 
+                      ch1 + ch2 + ch3); 
+ 
+    // encode the message 
+    ch1 = (char) (ch1 ^ key); 
+    ch2 = (char) (ch2 ^ key); 
+    ch3 = (char) (ch3 ^ key); 
+ 
+    Console.WriteLine("Encoded message: " +  
+                      ch1 + ch2 + ch3); 
+ 
+    // decode the message 
+    ch1 = (char) (ch1 ^ key); 
+    ch2 = (char) (ch2 ^ key); 
+    ch3 = (char) (ch3 ^ key); 
+    
+    Console.WriteLine("Decoded message: " + 
+                      ch1 + ch2 + ch3); 
+  } 
+}
+=======================================================================
+TO MAKE A NUMBER EVEN:
+num = (ushort) (num & 0xFFFE); // num & 1111 1110 
+ 
+      Console.WriteLine("num after turning off bit zero: " 
+                        +  num + "\n");  
+===============================================================================
+TO SHOW AND DISPLAY THE BITS INSIDE A BYTE:
+/*
+C#: The Complete Reference 
+by Herbert Schildt 
+
+Publisher: Osborne/McGraw-Hill (March 8, 2002)
+ISBN: 0072134852
+*/
+// Display the bits within a byte.  
+using System; 
+ 
+public class ShowBits { 
+  public static void Main() { 
+    int t; 
+    byte val;  
+  
+    val = 123; 
+    for(t=128; t > 0; t = t/2) { 
+      if((val & t) != 0) Console.Write("1 ");  
+      if((val & t) == 0) Console.Write("0 ");  
+    } 
+  } 
+}
+
+
+==============================================================================================
+
+Notice that the value 0x40 has exactly one 1 bit in its binary representation, which makes it useful for testing for the presence of a certain bit. Such a value is often called a bit mask. Often, we'll define a series of bit masks, all targeting different bits, and then treat a single integer value as a set of flags. A ``flag'' is an on-off, yes-no condition, so we only need one bit to record it, not the 16 or 32 bits (or more) of an int. Storing a set of flags in a single int does more than just save space, it also makes it convenient to assign a set of flags all at once from one flag variable to another, using the conventional assignment operator =. For example, if we made these definitions: 
+
+	#define DIRTY	0x01
+	#define OPEN	0x02
+	#define VERBOSE	0x04
+	#define RED	0x08
+	#define SEASICK	0x10
+
+we would have set up 5 different bits as keeping track of those 5 different conditions (``dirty,'' ``open,'' etc.). If we had a variable 
+	unsigned int flags;
+
+which contained a set of these flags, we could write tests like 
+	if(flags & DIRTY)
+		{ /* code for dirty case */ }
+
+	if(!(flags & OPEN))
+		{ /* code for closed case */ }
+
+	if(flags & VERBOSE)
+		{ /* code for verbose case */ }
+	else	{ /* code for quiet case */ }
+
+A condition like if(flags & DIRTY) can be read as ``if the DIRTY bit is on''. 
+
+These bitmasks would also be useful for setting the flags. To ``turn on the DIRTY bit,'' we'd say 
+
+	flags = flags | DIRTY;		/* set DIRTY bit */
+
+How would we ``turn off'' a bit? The way to do it is to leave on every bit but the one we're turning off, if they were on already. We do this with the & and ~ operators: 
+	flags = flags & ~DIRTY;		/* clear DIRTY bit */
+
+This may be easier to see if we look at it in binary. If the DIRTY, RED, and SEASICK bits were already on, flags would be 0x19, and we'd have 
+	  0 0 0 1 1 0 0 1
+	& 1 1 1 1 1 1 1 0
+	  ---------------
+	  0 0 0 1 1 0 0 0
+
+As you can see, both the | operator when turning bits on and the & (plus ~) operator when turning bits off have no effect if the targeted bit were already on or off, respectively. 
+
+The definition of the exclusive-OR operator means that you can use it to toggle a bit, that is, to turn it to 1 if it was 0 and to 0 if it was one: 
+
+	flags = flags ^ VERBOSE;	/* toggle VERBOSE bit */
+
+
+It's common to use the ``op='' shorthand forms when doing all of these operations: 
+
+	flags |= DIRTY;			/* set DIRTY bit */
+	flags &= ~OPEN;			/* clear OPEN bit */
+	flags ^= VERBOSE;		/* toggle VERBOSE bit */
+
+
+We can also use the bitwise operators to extract subsets of bits from the middle of an integer. For example, to extract the second-to-last hexadecimal ``digit,'' we could use 
+
+	(i & 0xf0) >> 4
+
+
+
+Replacing (or overwriting) a subset of bits is a bit more complicated; we must first use & and ~ to clear all of the destination bits, then use << and | to ``OR in'' the new bits. For example, to replace that second-to-last hexadecimal digit with some new bits, we might use: 
+	(i & ~0xf0) | (newbits << 4)
+
+
+
+=======================================================================================
+To make a number negative, you can do this: (~x +1)
+
+To see if two numbers are equal, you can do this:
+Given int x and int y, the is equal operator is: !(x ^ y)
+To see if a number is positive, you can do this: !(x>>31) & !!x; (note an integer is 32 bits)
+
+
+=====================================================================================
+
+
+
+	
